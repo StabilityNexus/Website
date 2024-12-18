@@ -10,6 +10,7 @@ const featuredPapers = [
     description: `Bruno Woltzenlogel Paleo, PhD \n Encyclopedia of Cryptography, Security and Privacy`,
     date: "31st May 2023",
     image: "./papers/encyclopedia.png",
+    link: "https://link.springer.com/referenceworkentry/10.1007/978-3-642-27739-9_1671-1"
   },
   {
     title:
@@ -18,6 +19,7 @@ const featuredPapers = [
       "J. Zahnentferner, D. Kaidalov, J.-F. Etienne, J. Diaz  \n IEEE International Conference on Blockchain and Cryptocurr.",
     date: "3rd May 2023",
     image: "./papers/ieee.png",
+    link: "https://eprint.iacr.org/2021/1069"
   },
   {
     title: "Potential Points of Failure of Stablecoins",
@@ -25,6 +27,7 @@ const featuredPapers = [
       "M. Kakebayashi, A. Nejadmalayeri, A. Bracciali, B. W. Paleo, C. White, G. Weinstein, J. Nabrzyski, K. Katayama, L. Molchanovsky, M. Yamanaka, M. Travers, T. Yuyama, Y. Kawai",
     date: "25th Jul 2023",
     image: "./papers/bgin-failure.png",
+    link: "https://bgin-global.org/documents/20230724_PoF_of_Stablecoins.pdf"
   },
   {
     title: "Design and Formalization of Oracles for Blockchains",
@@ -32,6 +35,7 @@ const featuredPapers = [
       "M. Shaheer, Prof. G. Reis, B. Woltzenlogel Paleo  \n Types and LPAR",
     date: "12th Jun 2023",
     image: "./papers/oracle.png",
+    link: "https://media.upv.es/#/portal/video/14bf81a0-34f9-11ee-8317-3dc1d7f6252c"
   },
   {
     title: "Stablecoins - Past, Present and Future",
@@ -39,12 +43,14 @@ const featuredPapers = [
       "Prof. A. Nejadmalayeri, L. Molchanovsky, B. Woltzenlogel Paleo, R. W. Prescott \n Workshop on Coordination of Decentralized Finance",
     date: "19th Oct 2022",
     image: "./papers/bgin.png",
+    link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4226071"
   },
   {
     title: "Djed: A Formally-Verified Crypto-Backed Algorithmic Stablecoin",
     description: "J. Zahnentferner, D. Kaidalov, J.-E. Etienne, J. Diaz",
     date: "23rd Aug 2021",
     image: "./papers/djed.png",
+    link: "https://eprint.iacr.org/2021/1069"
   },
 ]
 
@@ -54,54 +60,63 @@ const featuredVideos = [
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "3rd Jul 2023",
     image: "./videos/gluon.png",
+    link: "https://www.youtube.com/watch?v=tnvm1we6xts"
   },
   {
     title: "Formalization of Blockchain Oracles in Coq",
     description: "Prof. Giselle Reis",
     date: "12th Jun 2023",
     image: "./videos/types.png",
+    link: "https://media.upv.es/#/portal/video/14bf81a0-34f9-11ee-8317-3dc1d7f6252c"
   },
   {
     title: "Ideas for Improvements of the Djed Stablecoin Protocol",
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "11th Aug 2022",
     image: "./videos/improvements.png",
+    link: "https://www.youtube.com/watch?v=yTgapwydOW0"
   },
   {
     title: "BGIN Stablecoin Panel",
     description: "Djed Alliance and Circle (USDC)",
     date: "2nd Aug 2022",
     image: "./videos/bgin.png",
+    link: "https://tube.switch.ch/videos/9teQZqWD5x"
   },
   {
     title: "Djed Stablecoin on Cardano",
     description: "David (IOG)",
     date: "27th Oct 2021",
     image: "./videos/cardano.png",
+    link: "https://www.youtube.com/watch?v=5-Ozaf_aGNM"
   },
   {
     title: "Overview of SigmaUSD's Smart Contracts",
     description: "Amitabh Saxeena",
     date: "23rd Jan 2021",
     image: "./videos/sigmausd.png",
+    link: ""
   },
   {
     title: "The Release of Agenor",
     description: "Robert Kornacki",
     date: "23rd Jan 2021",
     image: "./videos/agenor.png",
+    link: "https://youtu.be/zG-rxMCDIa0?t=10935"
   },
   {
     title: "A Pegged and Crypto-backed Algorithmic Stablecoin",
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "23rd Jan 2021",
     image: "./videos/djed.png",
+    link: "https://youtu.be/zG-rxMCDIa0?t=8367"
   },
   {
     title: "The Djed Stablecoin Protocol",
     description: "Djed Alliance",
     date: "13th Jul 2023",
     image: "./videos/whiteboard.png",
+    link: "https://youtu.be/zG-rxMCDIa0?t=8285"
   },
 ]
 
@@ -132,7 +147,7 @@ export default function ResearchPage() {
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredPapers.map((paper, index) => (
             <Link
-              href={"https://docs.stability.nexus/stability-research-network/technical-papers"}
+              href={paper.link}
               key={index}
               className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl sm:p-6"
             >
@@ -221,7 +236,7 @@ export default function ResearchPage() {
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredVideos.map((video, index) => (
             <Link
-              href={"https://docs.stability.nexus/stability-research-network/presentations"}
+              href={video.link}
               key={index}
               className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-6 shadow-xl"
             >
