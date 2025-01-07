@@ -7,8 +7,8 @@ export default function Home() {
       <Hero />
       <CTA
         heading="Stability Matters!"
-        text="If you are or would like to be working\n on stability-related
-            projects,\n let's work together."
+        text="If you are or would like to be working on stability-related
+            projects, let's work together."
         link="https://discord.gg/YzDKeEfWtS"
         linkText="Join us in Discord"
       />
