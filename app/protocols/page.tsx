@@ -22,7 +22,13 @@ const protocols = [
     link: "https://hodlcoin.co.in",
   },
   {
-    title: "Destiny",
+    title: "Clowder (Soon!)",
+    description: "Token Issuance",
+    image: "./logos/clowder.png",
+    link: "https://clowder.stability.nexus",
+  },
+  {
+    title: "Destiny (Soon!)",
     description: "Prediction Pools",
     image: "./logos/destiny.png",
     link: "https://forecast.bid",
@@ -55,7 +61,7 @@ export default function ProtocolsPage() {
           Protocols
         </h2>
         */}
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           {protocols.map((protocol, index) => (
             <Card
               index={index}
