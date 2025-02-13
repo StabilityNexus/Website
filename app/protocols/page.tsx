@@ -2,7 +2,7 @@ import Card from "@/components/card"
 import Container from "@/components/container"
 import CTA from "@/components/cta"
 
-const protocols = [
+const protocols1 = [
   {
     title: "Djed",
     description: "Stablecoin Protocol",
@@ -20,9 +20,22 @@ const protocols = [
     description: "Staking Protocol",
     image: "./logos/hodlcoin.png",
     link: "https://hodlcoin.co.in",
+  }]
+const protocols2 = [
+  {
+    title: "Bene",
+    description: "Fundraising",
+    image: "./logos/bene.svg",
+    link: "https://bene-ergo.stability.nexus",
   },
   {
-    title: "Clowder (Soon!)",
+    title: "FairFund",
+    description: "Fund Distribution",
+    image: "./logos/fairfund.svg",
+    link: "https://fairfund.stability.nexus",
+  },
+  {
+    title: "Clowder",
     description: "Token Issuance",
     image: "./logos/clowder.png",
     link: "https://clowder.stability.nexus",
@@ -61,8 +74,19 @@ export default function ProtocolsPage() {
           Protocols
         </h2>
         */}
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {protocols.map((protocol, index) => (
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {protocols1.map((protocol, index) => (
+            <Card
+              index={index}
+              image={protocol.image}
+              title={protocol.title}
+              description={protocol.description}
+              link={protocol.link}
+            />
+          ))}
+        </div>
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {protocols2.map((protocol, index) => (
             <Card
               index={index}
               image={protocol.image}
