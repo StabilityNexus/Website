@@ -20,7 +20,14 @@ const protocols1 = [
     description: "Staking Protocol",
     image: "./logos/hodlcoin.png",
     link: "https://hodlcoin.co.in",
-  }]
+  },
+  {
+    title: "Destiny (Soon!)",
+    description: "Prediction Pools",
+    image: "./logos/destiny.png",
+    link: "https://forecast.bid",
+  },
+]
 const protocols2 = [
   {
     title: "Bene",
@@ -36,15 +43,15 @@ const protocols2 = [
   },
   {
     title: "Clowder",
-    description: "Token Issuance",
+    description: "Issuance of Contribution Accounting Tokens",
     image: "./logos/clowder.png",
     link: "https://clowder.stability.nexus",
   },
   {
-    title: "Destiny (Soon!)",
-    description: "Prediction Pools",
-    image: "./logos/destiny.png",
-    link: "https://forecast.bid",
+    title: "TNT (Soon!)",
+    description: "Issuance of Trust Network Tokens",
+    image: "./logos/tnt.svg",
+    link: "#",
   },
 ]
 
@@ -74,7 +81,7 @@ export default function ProtocolsPage() {
           Protocols
         </h2>
         */}
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {protocols1.map((protocol, index) => (
             <Card
               index={index}
