@@ -43,13 +43,13 @@ const protocols2 = [
   },
   {
     title: "Clowder",
-    description: "Issuance of Contribution Accounting Tokens",
+    description: "Fungible Token Issuance",
     image: "./logos/clowder.png",
     link: "https://clowder.stability.nexus",
   },
   {
     title: "TNT (Soon!)",
-    description: "Issuance of Trust Network Tokens",
+    description: "Non-Fungible Trust Token Issuance",
     image: "./logos/tnt.svg",
     link: "#",
   },
