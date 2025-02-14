@@ -2,7 +2,7 @@ import Card from "@/components/card"
 import Container from "@/components/container"
 import CTA from "@/components/cta"
 
-const blockchains = [
+const blockchains1 = [
   {
     title: "Ergo",
     description: "",
@@ -21,6 +21,8 @@ const blockchains = [
     image: "./blockchains/ethereum-classic.svg",
     link: "https://ethereumclassic.org/",
   },
+]
+const blockchains2 = [
   {
     title: "Milkomeda",
     description: "",
@@ -39,6 +41,12 @@ const blockchains = [
     image: "./blockchains/sui.svg",
     link: "https://sui.io/",
   },
+  {
+    title: "Citrea",
+    description: "",
+    image: "./blockchains/citrea.png",
+    link: "https://citrea.xyz/",
+  },
 ]
 
 export default function BlockchainsPage() {
@@ -52,8 +60,19 @@ export default function BlockchainsPage() {
         <div className="h-56 bg-gradient-to-r from-secondary via-info to-primary blur-[100px]"></div>
       </div>
       <Container>
-        <div className="mb-20 grid gap-8 md:grid-cols-3 lg:grid-cols-6">
-          {blockchains.map((item, index) => (
+        <div className="mb-20 grid gap-8 md:grid-cols-3 lg:grid-cols-3">
+          {blockchains1.map((item, index) => (
+            <Card
+              index={index}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              link={item.link}
+            />
+          ))}
+        </div>
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {blockchains2.map((item, index) => (
             <Card
               index={index}
               image={item.image}
