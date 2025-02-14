@@ -106,7 +106,7 @@ export default function ProtocolsPage() {
       </Container>
       <CTA
         heading="The Stable Order"
-        text="The Stable Order is an open and decentralized organization of mutually cooperative knights and benefactors. Its primary activity is the research and development of novel protocols that stabilize the decentralized economy. If you share our goals and would like to work together or support us, get in touch."
+        text="The Stable Order is an open and mutually supportive collaboration, whose primary activity is the research and development of novel protocols that stabilize the decentralized economy. If you share our goals and would like to work together or support us, get in touch."
         link="https://docs.stability.nexus/about-us/the-stable-order/join-the-stable-order"
         linkText="Join the Stable Order"
       />
