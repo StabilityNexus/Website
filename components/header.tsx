@@ -20,6 +20,10 @@ const links = [
     label: "Research",
   },
   {
+    to: "https://workshop.stability.nexus",
+    label: "Workshop",
+  },
+  {
     to: "https://news.stability.nexus/",
     label: "Articles",
   },
