@@ -56,6 +56,13 @@ const featuredPapers = [
 
 const featuredVideos = [
   {
+    title: "Signs of Incoherence, Ineffectiveness, Insufficiency and Inadequacy in Stablecoin Regulations",
+    description: "Bruno Woltzenlogel Paleo, PhD",
+    date: "3rd March 2025",
+    image: "./videos/regulation.png",
+    link: "https://www.youtube.com/watch?v=AmRRDpquGi8"
+  },
+  {
     title: "The Gluon Stabilization Protocol",
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "3rd Jul 2023",
