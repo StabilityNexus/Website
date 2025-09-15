@@ -24,6 +24,10 @@ const links = [
     label: "Workshop",
   },
   {
+    to: "https://hackathon.stability.nexus",
+    label: "Hackathon",
+  },
+  {
     to: "https://news.stability.nexus/",
     label: "Articles",
   },
