@@ -71,7 +71,8 @@ export default function Header() {
                 width={50}
               />
               <span className="text-2xl font-medium tracking-tight text-black">
-                Stability Nexus
+                <span className=" text-secondary dark:text-white">Stability</span> 
+                <span className="block text-primary dark:text-white">Nexus</span>
               </span>
             </Link>
 
