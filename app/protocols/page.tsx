@@ -73,13 +73,13 @@ const protocols1 = [
     title: "HackHub",
     description: "Hackathon Platform",
     image: "./logos/hackhub.png",
-    link: "#",
+    link: "https://hackhub.stability.nexus",
   },
   {
     title: "TNT",
     description: "Non-Fungible Trust Token Issuance",
     image: "./logos/tnt.svg",
-    link: "#",
+    link: "https://tnt.stability.nexus",
   },
 ]
 
