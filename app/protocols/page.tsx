@@ -18,8 +18,14 @@ const protocols1 = [
   {
     title: "hodlCoin",
     description: "Staking Protocol",
-    image: "./logos/hodlcoin.png",
+    image: "./logos/hodlcoin.svg",
     link: "https://hodlcoin.co.in",
+  },
+  {
+    title: "Hammer",
+    description: "Auction House",
+    image: "./logos/hammer.svg",
+    link: "https://hammer-auctions.stability.nexus/",
   },
   {
     title: "Destiny (Soon!)",
@@ -27,8 +33,24 @@ const protocols1 = [
     image: "./logos/destiny.png",
     link: "https://forecast.bid",
   },
-]
-const protocols2 = [
+  {
+    title: "Fate",
+    description: "Perpetual Prediction Pools",
+    image: "./logos/destiny.png",
+    link: "https://fate.stability.nexus",
+  },
+  {
+    title: "Clowder",
+    description: "Fungible Token Issuance",
+    image: "./logos/clowder.png",
+    link: "https://clowder.stability.nexus",
+  },
+  {
+    title: "VouchMe",
+    description: "OnChain Testimonials",
+    image: "./logos/vouchme.png",
+    link: "https://vouchme.stability.nexus",
+  },
   {
     title: "Bene",
     description: "Fundraising",
@@ -42,16 +64,22 @@ const protocols2 = [
     link: "https://fairfund.stability.nexus",
   },
   {
-    title: "Clowder",
-    description: "Fungible Token Issuance",
-    image: "./logos/clowder.png",
-    link: "https://clowder.stability.nexus",
+    title: "Chainvoice",
+    description: "OnChain Invoices",
+    image: "./logos/chainvoice.png",
+    link: "https://chainvoice.stability.nexus",
   },
   {
-    title: "TNT (Soon!)",
+    title: "HackHub",
+    description: "Hackathon Platform",
+    image: "./logos/hackhub.png",
+    link: "https://hackhub.stability.nexus",
+  },
+  {
+    title: "TNT",
     description: "Non-Fungible Trust Token Issuance",
     image: "./logos/tnt.svg",
-    link: "#",
+    link: "https://tnt.stability.nexus",
   },
 ]
 
@@ -83,17 +111,6 @@ export default function ProtocolsPage() {
         */}
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {protocols1.map((protocol, index) => (
-            <Card
-              index={index}
-              image={protocol.image}
-              title={protocol.title}
-              description={protocol.description}
-              link={protocol.link}
-            />
-          ))}
-        </div>
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {protocols2.map((protocol, index) => (
             <Card
               index={index}
               image={protocol.image}

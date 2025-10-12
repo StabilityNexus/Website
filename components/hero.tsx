@@ -21,16 +21,18 @@ export default function Hero() {
               loading="lazy"
               src="./logo-animated.gif"
               alt="Stability Nexus Logo"
-              height={100}
-              width={100}
+              height={200}
+              width={200}
               className="mx-auto mb-4"
             />
+            {/* 
             <h1 className="text-5xl font-medium tracking-tighter text-black dark:text-white md:text-6xl xl:text-8xl">
               <span className="block text-secondary dark:text-white">
                 Stability
               </span>
               <span className="block text-primary dark:text-white">Nexus</span>
             </h1>
+            /*}
             {/*
             <p className="mt-8 text-lg text-gray-700 dark:text-gray-300">
               The location in semantic space<br />
@@ -38,7 +40,6 @@ export default function Hero() {
               building a more stable world<br />
               through emerging technologies.
             </p>
-            */}
             <div className="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-4">
               <Link
                 href="/protocols"
@@ -49,6 +50,7 @@ export default function Hero() {
                 </span>
               </Link>
             </div>
+            */}
           </div>
         </div>
       </Container>
