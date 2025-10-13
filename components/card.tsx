@@ -9,11 +9,11 @@ interface Props {
   link: string
 }
 
-const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
+const Card: React.FC<Props> = ({ image, title, description, link }) => {
   return (
-    <Link href={link}>
+    <Link href={link} aria-label={title}>
       <div
-        className="group relative flex h-auto flex-col justify-evenly rounded-lg border border-zinc-200 p-6 shadow-xl transition hover:shadow-2xl"
+        className="group relative flex h-auto flex-col justify-evenly rounded-lg border border-zinc-200 p-6 shadow-xl transition hover:shadow-2xl hover:z-10 focus-visible:z-10"
       >
         {/* Image container — removed overflow-hidden so zoom can overflow */}
         <div className="relative h-fit rounded-md flex justify-center items-center">
