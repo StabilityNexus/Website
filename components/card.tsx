@@ -16,14 +16,14 @@ const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
         key={index}
         className="group relative flex h-auto flex-col justify-evenly rounded-lg border border-zinc-200 p-6 shadow-xl"
       >
-        <div className="relative h-fit overflow-hidden rounded-md">
+        <div className="relative h-fit rounded-md">
           <Image
             src={image}
             alt="Protocol Logo"
             loading="lazy"
             width="700"
             height="700"
-            className="h-64 w-full object-contain transition duration-500 group-hover:scale-105"
+            className="relative z-10 h-64 w-full object-contain transition duration-500 group-hover:scale-105"
           />
         </div>
         <div className="relative mt-4 h-fit">
