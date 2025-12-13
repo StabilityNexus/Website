@@ -14,9 +14,9 @@ const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
     <Link href={link}>
       <div
         key={index}
-        className="group relative flex h-auto flex-col justify-evenly rounded-lg border border-zinc-200 p-6 shadow-xl"
+        className="group relative flex h-auto flex-col justify-evenly rounded-lg border border-zinc-200 p-6 shadow-xl overflow-visible"
       >
-        <div className="relative h-fit overflow-hidden rounded-md">
+        <div className="relative h-fit overflow-visible rounded-md">
           <Image
             src={image}
             alt="Protocol Logo"
