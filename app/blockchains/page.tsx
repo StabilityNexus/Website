@@ -63,6 +63,7 @@ export default function BlockchainsPage() {
         <div className="mb-20 grid gap-8 md:grid-cols-3 lg:grid-cols-3">
           {blockchains1.map((item, index) => (
             <Card
+              key={index}
               index={index}
               image={item.image}
               title={item.title}
@@ -74,6 +75,7 @@ export default function BlockchainsPage() {
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {blockchains2.map((item, index) => (
             <Card
+              key={index}
               index={index}
               image={item.image}
               title={item.title}

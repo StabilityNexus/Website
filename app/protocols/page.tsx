@@ -112,6 +112,7 @@ export default function ProtocolsPage() {
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {protocols1.map((protocol, index) => (
             <Card
+              key={index}
               index={index}
               image={protocol.image}
               title={protocol.title}
