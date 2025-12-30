@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const navigation = [
   {
@@ -105,32 +106,94 @@ const navigation = [
   },
 ]
 
+const footerLinks = [
+  { name: "Blockchains", href: "/blockchains" },
+  { name: "Protocols", href: "/protocols" },
+  { name: "Research", href: "/research" },
+  { name: "Workshop", href: "https://workshop.stability.nexus" },
+  { name: "Hackathon", href: "https://hackathon.stability.nexus" },
+  { name: "Articles", href: "https://news.stability.nexus/" },
+  { name: "Docs", href: "https://docs.stability.nexus/" },
+]
+
 export default function Footer() {
   return (
-    <footer className="p-10">
-      <div className="flex items-center justify-between">
-        {/*
-        <Image
-          unoptimized
-          fetchPriority="high"
-          loading="lazy"
-          src="./logo.png"
-          alt="Stability Nexus Logo"
-          height={65}
-          width={65}
-        />
-        */}
-        <div className="flex items-center space-x-4 md:order-2">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className=" rounded-full bg-secondary/30 p-2 hover:bg-secondary"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="size-6" aria-hidden="true" />
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                unoptimized
+                src="./logo.png"
+                alt="Stability Nexus Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+              />
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                Stability Nexus
+              </span>
             </Link>
-          ))}
+            <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">
+              Building a more stable world through emerging technologies.
+            </p>
+            <div className="flex space-x-6">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="size-6" aria-hidden="true" />
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                  Resources
+                </h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {footerLinks.slice(0, 4).map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                  More
+                </h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {footerLinks.slice(4).map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
+          <p className="text-xs leading-5 text-gray-500">
+            &copy; {new Date().getFullYear()} Stability Nexus. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
