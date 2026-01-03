@@ -2,14 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface Props {
-  index: number
   image: string
   title: string
   description: string
   link: string
 }
 
-const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
+const Card: React.FC<Props> = ({ image, title, description, link }) => {
+
   return (
     <Link href={link}>
       <div
