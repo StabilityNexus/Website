@@ -30,14 +30,15 @@ const Card: React.FC<Props> = ({ image, title, description, link }) => {
             {title}
           </h3>
           <p className="mb-6 mt-2 text-center text-black">
-            {description.split("\n").map((item, key) => {
+            {description.split("\n").map((item, index) => {
               return (
-                <span key={key}>
-                  {item}
-                  <br />
-                </span>
+                <span key={`${item}-${index}`}>
+                {item}
+                <br />
+               </span>
               )
             })}
+
           </p>
         </div>
       </div>
