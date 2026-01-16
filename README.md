@@ -43,6 +43,7 @@
 </p>
 
 &nbsp;
+
 <!-- Project core values and objective -->
 <p align="center">
   <strong>
@@ -82,6 +83,7 @@
 </details>
 
 <!-- Project Description (Start from here) -->
+
 ## **Getting Started**
 
 First install the required packages by running:
@@ -122,8 +124,8 @@ Visit [here](https://ui.shadcn.com/) to checkout the UI Library. <br />
 
 - Run the command in the Installation section of a component to install it.
 - Read the Usage section to implement the component.
-<!-- Use Back Button after each section -->
-<div align="right"><kbd><a href="#readme-top">↑ Back to top ↑</a></kbd></div>
+  <!-- Use Back Button after each section -->
+  <div align="right"><kbd><a href="#readme-top">↑ Back to top ↑</a></kbd></div>
 
 ## **Commands to run before pushing code**
 
@@ -154,6 +156,7 @@ npm run typecheck
 ```
 
 This command displays any issues (if present) within the code.
+
 <!-- Use Back Button after each section -->
 <div align="right"><kbd><a href="#readme-top">↑ Back to top ↑</a></kbd></div>
 
@@ -163,7 +166,7 @@ Whenever you push some major changes or fix any issue, mention the changes brief
 
 If this section has some updates written, don't clear them. Just add your changes after that.
 
-- Add points like this in a list format ( override this point to get started and add a `-` to make any point a list).
+- Fixed mobile menu persistence bug where menu remained open after navigation - `components/header.tsx`
   <br/>
   <br/>
 
@@ -184,7 +187,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 
 <!-- Use Back Button after each section -->
 <div align="right"><kbd><a href="#readme-top">↑ Back to top ↑</a></kbd></div>
