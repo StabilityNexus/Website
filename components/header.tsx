@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Container from "./container"
 
 const links = [
@@ -47,8 +47,13 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen(currState => !currState);
+    setIsOpen((currState) => !currState)
   }
+
+  //Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false)
+  }, [path])
 
   return (
     <nav className="z-10 mt-5 w-full border-b border-black/5 dark:border-white/5 lg:border-transparent">
@@ -71,8 +76,12 @@ export default function Header() {
                 width={50}
               />
               <span className="text-2xl font-medium tracking-tight text-black">
-                <span className=" text-secondary dark:text-white">Stability</span> 
-                <span className="block text-primary dark:text-white">Nexus</span>
+                <span className=" text-secondary dark:text-white">
+                  Stability
+                </span>
+                <span className="block text-primary dark:text-white">
+                  Nexus
+                </span>
               </span>
             </Link>
 
@@ -125,7 +134,7 @@ export default function Header() {
             href={link.to}
             key={index}
             onClick={toggleMenu}
-            className={`block w-full mr-6 py-2 text-right font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
+            className={`mr-6 block w-full py-2 text-right font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
           >
             <span>{link.label}</span>
           </Link>
