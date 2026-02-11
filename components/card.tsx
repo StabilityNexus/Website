@@ -2,14 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface Props {
-  index: number
   image: string
   title: string
   description: string
   link: string
 }
 
-const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
+const Card: React.FC<Props> = ({ image, title, description, link }) => {
+
   return (
     <Link href={link}>
       <div className="group relative flex h-auto flex-col justify-evenly overflow-visible rounded-lg border border-zinc-200 p-6 shadow-xl">
@@ -28,14 +28,16 @@ const Card: React.FC<Props> = ({ index, image, title, description, link }) => {
             {title}
           </h3>
           <p className="mb-6 mt-2 text-center text-black">
-            {description.split("\n").map((item, key) => {
+            {description.split("\n").map((item, idx) => {
               return (
-                <span key={key}>
+                <span key={idx}>
                   {item}
                   <br />
                 </span>
-              )
-            })}
+                )
+              })}
+
+
           </p>
         </div>
       </div>
