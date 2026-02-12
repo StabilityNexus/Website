@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import Container from "./container"
+import { ModeToggle } from "./mode-toggle"
 
 const links = [
   {
@@ -86,11 +87,12 @@ export default function Header() {
             </Link>
 
             {/* Small Screen Menu Button */}
-            <div className="relative flex max-h-10 items-center lg:hidden">
+            <div className="relative flex max-h-10 items-center lg:hidden ">
+              <ModeToggle />
               <button
                 aria-label="menu"
                 id="menu"
-                className="relative -mr-6 p-6"
+                className="relative -mr-6 p-6 text-gray-700 dark:text-gray-200"
                 onClick={toggleMenu}
               >
                 {isOpen ? (
@@ -105,22 +107,23 @@ export default function Header() {
           {/* Large Screen Menu */}
           <div
             id="navlinks"
-            className="invisible absolute left-0 top-full z-20 w-full origin-top-right translate-y-1 scale-90 flex-col flex-wrap justify-end gap-6 rounded-3xl border border-gray-100 bg-white p-8 opacity-0 shadow-2xl shadow-gray-600/10 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none lg:visible lg:relative lg:flex lg:w-7/12 lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none"
+            className="invisible absolute left-0 top-full z-20 w-full origin-top-right translate-y-1 scale-90 flex-col justify-end gap-6 rounded-3xl border border-gray-100 bg-white p-8 opacity-0 shadow-2xl shadow-gray-600/10 transition-all duration-300 dark:border-gray-700 dark:shadow-none lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none"
           >
-            <div className="w-full text-black dark:text-gray-200 lg:w-auto lg:pr-4 lg:pt-0">
-              <ul className="flex flex-col gap-6 tracking-wide lg:flex-row lg:gap-0 ">
-                {links.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      href={link.to}
-                      className={`block font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
-                    >
-                      <span>{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="flex flex-col gap-6 tracking-wide text-black dark:text-gray-200 lg:flex-row lg:items-center lg:gap-0">
+              {links.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.to}
+                    className={`block font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+              <li className="hidden lg:block">
+                <ModeToggle />
+              </li>
+            </ul>
           </div>
         </div>
       </Container>

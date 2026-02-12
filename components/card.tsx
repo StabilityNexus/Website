@@ -12,7 +12,7 @@ const Card: React.FC<Props> = ({ image, title, description, link }) => {
 
   return (
     <Link href={link}>
-      <div className="group relative flex h-auto flex-col justify-evenly overflow-visible rounded-lg border border-zinc-200 p-6 shadow-xl">
+      <div className="group relative flex h-auto flex-col justify-evenly overflow-visible rounded-lg border border-zinc-200 p-6 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none">
         <div className="relative h-fit overflow-visible rounded-md">
           <Image
             src={image}
@@ -24,10 +24,10 @@ const Card: React.FC<Props> = ({ image, title, description, link }) => {
           />
         </div>
         <div className="relative mt-4 h-fit">
-          <h3 className="text-center  text-2xl font-semibold leading-6 tracking-tight text-gray-800">
+          <h3 className="text-center text-2xl font-semibold leading-6 tracking-tight text-gray-800 dark:text-gray-100">
             {title}
           </h3>
-          <p className="mb-6 mt-2 text-center text-black">
+          <p className="mb-6 mt-2 text-center text-black dark:text-gray-300">
             {description.split("\n").map((item, idx) => {
               return (
                 <span key={idx}>
