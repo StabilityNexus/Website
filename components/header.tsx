@@ -7,10 +7,10 @@ import { useEffect, useState } from "react"
 import Container from "./container"
 
 const links = [
-  {
-    to: "/blockchains",
-    label: "Blockchains",
-  },
+  // {
+  //   to: "/blockchains",
+  //   label: "Blockchains",
+  // },
   {
     to: "/protocols",
     label: "Protocols",
@@ -28,7 +28,7 @@ const links = [
     label: "Hackathon",
   },
   {
-    to: "https://news.stability.nexus/",
+    to: "https://viewpoints.stability.nexus/",
     label: "Articles",
   },
   {
