@@ -49,7 +49,7 @@ const featuredPapers = [
     title: "Djed: A Formally-Verified Crypto-Backed Algorithmic Stablecoin",
     description: "J. Zahnentferner, D. Kaidalov, J.-E. Etienne, J. Diaz",
     date: "23rd Aug 2021",
-    image: "./papers/djed.png",
+    image: "./papers/djed.svg",
     link: "https://eprint.iacr.org/2021/1069",
   },
 ]
@@ -116,7 +116,7 @@ const featuredVideos = [
     title: "A Pegged and Crypto-backed Algorithmic Stablecoin",
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "23rd Jan 2021",
-    image: "./videos/djed.png",
+    image: "./videos/djed.svg",
     link: "https://youtu.be/zG-rxMCDIa0?t=8367",
   },
   {
