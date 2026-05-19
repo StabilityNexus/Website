@@ -6,7 +6,7 @@ const protocols1 = [
   {
     title: "Djed",
     description: "Stablecoin Protocol",
-    image: "./logos/djed.png",
+    image: "./logos/djed.svg",
     link: "https://djed.one",
   },
   {
