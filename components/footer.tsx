@@ -107,7 +107,7 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="p-10">
+    <footer className="flex items-center justify-center p-10">
       <div className="flex items-center justify-between">
         {/*
         <Image
