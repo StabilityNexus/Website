@@ -49,7 +49,7 @@ const featuredPapers = [
     title: "Djed: A Formally-Verified Crypto-Backed Algorithmic Stablecoin",
     description: "J. Zahnentferner, D. Kaidalov, J.-E. Etienne, J. Diaz",
     date: "23rd Aug 2021",
-    image: "./papers/djed.svg",
+    image: "./papers/djed.png",
     link: "https://eprint.iacr.org/2021/1069",
   },
 ]
