@@ -116,7 +116,7 @@ const featuredVideos = [
     title: "A Pegged and Crypto-backed Algorithmic Stablecoin",
     description: "Bruno Woltzenlogel Paleo, PhD",
     date: "23rd Jan 2021",
-    image: "./videos/djed.svg",
+    image: "./videos/djed.png",
     link: "https://youtu.be/zG-rxMCDIa0?t=8367",
   },
   {
