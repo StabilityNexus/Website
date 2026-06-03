@@ -64,7 +64,6 @@ export default function BlockchainsPage() {
           {blockchains1.map((item, index) => (
             <Card
               key={index}
-              index={index}
               image={item.image}
               title={item.title}
               description={item.description}
@@ -76,7 +75,6 @@ export default function BlockchainsPage() {
           {blockchains2.map((item, index) => (
             <Card
               key={index}
-              index={index}
               image={item.image}
               title={item.title}
               description={item.description}
