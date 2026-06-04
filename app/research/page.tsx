@@ -149,7 +149,7 @@ export default function ResearchPage() {
           </p>
         </div>
         */}
-        <h2 className="mb-5 text-2xl font-bold text-black underline decoration-dashed underline-offset-4">
+        <h2 className="mb-5 text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
           Featured Papers
         </h2>
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -157,7 +157,7 @@ export default function ResearchPage() {
             <Link
               href={paper.link}
               key={index}
-              className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl sm:p-6"
+              className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none sm:p-6"
             >
               <div
                 className="relative w-full overflow-hidden rounded-md"
@@ -172,7 +172,7 @@ export default function ResearchPage() {
                 />
               </div>
               <div className="relative mt-2 grow sm:mt-4">
-                <h3 className="text-2xl font-semibold leading-6 tracking-tight text-gray-800">
+                <h3 className="text-2xl font-semibold leading-6 tracking-tight text-gray-800 dark:text-gray-100">
                   {paper.title}
                 </h3>
                 {/* <div className="my-3 flex w-fit items-center gap-2 rounded-md bg-zinc-100 p-2">
@@ -224,7 +224,7 @@ export default function ResearchPage() {
                     {paper.date}
                   </span>
                 </div> */}
-                <p className="mt-2 text-black">
+                <p className="mt-2 text-black dark:text-gray-300">
                   {paper.description.split("\n").map((item, key) => {
                     return (
                       <span key={key}>
@@ -238,7 +238,7 @@ export default function ResearchPage() {
             </Link>
           ))}
         </div>
-        <h2 className="mb-5 mt-10 text-2xl font-bold text-black underline decoration-dashed underline-offset-4">
+        <h2 className="mb-5 mt-10 text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
           Featured Videos
         </h2>
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -246,7 +246,7 @@ export default function ResearchPage() {
             <Link
               href={video.link}
               key={index}
-              className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-6 shadow-xl"
+              className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-6 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none"
             >
               <div className="relative aspect-video w-full overflow-hidden rounded-md">
                 <Image
@@ -258,7 +258,7 @@ export default function ResearchPage() {
                 />
               </div>
               <div className="relative mt-2 grow">
-                <h3 className="text-2xl  font-semibold leading-6 tracking-tight text-gray-800">
+                <h3 className="text-2xl  font-semibold leading-6 tracking-tight text-gray-800 dark:text-gray-100">
                   {video.title}
                 </h3>
                 {/* <div className="my-3 flex w-fit items-center gap-2 rounded-md bg-zinc-100 p-2">
@@ -312,7 +312,7 @@ export default function ResearchPage() {
                     {video.date}
                   </span>
                 </div> */}
-                <p className="mt-2 text-black">{video.description}</p>
+                <p className="mt-2 text-black dark:text-gray-300">{video.description}</p>
               </div>
             </Link>
           ))}
