@@ -49,8 +49,92 @@ const featuredPapers = [
     title: "Djed: A Formally-Verified Crypto-Backed Algorithmic Stablecoin",
     description: "J. Zahnentferner, D. Kaidalov, J.-E. Etienne, J. Diaz",
     date: "23rd Aug 2021",
-    image: "./papers/djed.svg",
+    image: "./papers/djed.png",
     link: "https://eprint.iacr.org/2021/1069",
+  },
+  {
+    title: "Orb: Formally Verified, Decentralized and Sustainable Oracles",
+    description: "J. Zahnentferner, S. Dengre, L. D'Angelo, L. Quilling",
+    date: "2026",
+    image: "./papers/orb_v2.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Orb/v2.pdf",
+  },
+  {
+    title: "Fate Protocol: Perpetual Prediction Pools",
+    description: "J. Zahnentferner, A. Jha, R. Shah \n 1st Stability Workshop",
+    date: "1st Mar 2025",
+    image: "./papers/fate_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Fate/v1.pdf",
+  },
+  {
+    title: "RainDrop: Reward Distribution Protocol",
+    description: "J. Zahnentferner, S. Dengre \n 1st Stability Workshop",
+    date: "1st Mar 2025",
+    image: "./papers/raindrop_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Raindrop/v1.pdf",
+  },
+  {
+    title: "Djed Shu: A Stablecoin Protocol with Two Oracle Prices",
+    description: "J. Zahnentferner, Y. Agrawal \n 1st Stability Workshop",
+    date: "1st Mar 2025",
+    image: "./papers/djed_shu_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Djed/Shu/v1.pdf",
+  },
+  {
+    title: "Orb: Decentralized and Sustainable Oracles",
+    description: "J. Zahnentferner, S. Dengre, L. D'Angelo \n 1st Stability Workshop",
+    date: "1st Mar 2025",
+    image: "./papers/orb_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Orb/v1.pdf",
+  },
+  {
+    title: "Gluon W: A Cryptocurrency Stabilization Protocol",
+    description: "B. Woltzenlogel Paleo, L. D'Angelo, M. Shaheer, G. Reis \n Cryptology ePrint Archive",
+    date: "9th Oct 2025",
+    image: "./papers/gluon_w_v2.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Gluon/W/v2.pdf",
+  },
+  {
+    title: "hodlCoin: A Staking Protocol",
+    description: "J. Zahnentferner, L. D'Angelo \n Cryptology ePrint Archive",
+    date: "17th Jun 2025",
+    image: "./papers/hodlcoin_v2.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/hodlCoin/v2.pdf",
+  },
+  {
+    title: "hodlCoin: A Financial Game",
+    description: "J. Zahnentferner \n Cryptology ePrint Archive",
+    date: "11th Sep 2023",
+    image: "./papers/hodlcoin_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/hodlCoin/v1.pdf",
+  },
+  {
+    title: "UTXO_sf ma: UTXO with Multi-asset Support",
+    description: "M. Chakravarty, J. Chapman, K. MacKenzie, O. Melkonian, J. Müller, M. Peyton Jones, P. Vinogradova, P. Wadler, J. Zahnentferner \n Springer LNCS",
+    date: "20th Oct 2020",
+    image: "./papers/eutxo_ma_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/EUTXO-MA/v1.pdf",
+  },
+  {
+    title: "Multi-Currency Ledgers",
+    description: "J. Zahnentferner \n Cryptology ePrint Archive",
+    date: "11th Aug 2020",
+    image: "./papers/multiassets_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/MultiAssets/v1.pdf",
+  },
+  {
+    title: "An Abstract Model of UTxO-based Cryptocurrencies with Scripts",
+    description: "J. Zahnentferner \n Cryptology ePrint Archive",
+    date: "25th May 2018",
+    image: "./papers/script_utxo_model_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/Script-UTxO-Model/v1.pdf",
+  },
+  {
+    title: "Chimeric Ledgers: Translating and Unifying UTXO & Account-based Cryptocurrencies",
+    description: "J. Zahnentferner \n Cryptology ePrint Archive",
+    date: "13th Mar 2018",
+    image: "./papers/chimericledgers_v1.png",
+    link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/ChimericLedgers/v1.pdf",
   },
 ]
 
@@ -160,16 +244,34 @@ export default function ResearchPage() {
               className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl sm:p-6"
             >
               <div
-                className="relative w-full overflow-hidden rounded-md"
+                className="relative w-full overflow-hidden rounded-md border border-zinc-200/50 bg-white shadow-inner"
                 style={{ aspectRatio: "3/4" }}
               >
-                <Image
-                  src={paper.image}
-                  alt="Research paper cover"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-contain transition duration-500 group-hover:scale-105"
-                />
+                {paper.image ? (
+                  <Image
+                    src={paper.image}
+                    alt="Research paper cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-contain transition duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-white transition duration-500 group-hover:scale-105">
+                    <svg
+                      className="h-16 w-16 text-zinc-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
               <div className="relative mt-2 grow sm:mt-4">
                 <h3 className="text-2xl font-semibold leading-6 tracking-tight text-gray-800">
