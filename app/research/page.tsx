@@ -109,7 +109,11 @@ const featuredPapers = [
     link: "https://cdn.jsdelivr.net/gh/StabilityNexus/Papers/papers/hodlCoin/v1.pdf",
   },
   {
-    title: "UTXO_sf ma: UTXO with Multi-asset Support",
+    title: (
+      <span>
+        UTXO<sub>sf ma</sub>: UTXO with Multi-asset Support
+      </span>
+    ),
     description: "M. Chakravarty, J. Chapman, K. MacKenzie, O. Melkonian, J. Müller, M. Peyton Jones, P. Vinogradova, P. Wadler, J. Zahnentferner \n Springer LNCS",
     date: "20th Oct 2020",
     image: "./papers/eutxo_ma_v1.png",
