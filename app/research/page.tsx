@@ -3,6 +3,27 @@ import Container from "@/components/container"
 import CTA from "@/components/cta"
 import Image from "next/image"
 import Link from "next/link"
+import { ExternalLink } from "lucide-react"
+
+const GithubIcon = ({ className, ...props }: React.ComponentProps<"svg">) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+)
+
 
 const featuredPapers = [
   {
@@ -221,12 +242,12 @@ export default function ResearchPage() {
     <div className="relative pt-12">
       <div
         aria-hidden="true"
-        className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40"
+        className="pointer-events-none absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40"
       >
         <div className="h-56 bg-gradient-to-r from-primary via-info to-secondary blur-[100px]"></div>
         <div className="h-56 bg-gradient-to-r from-secondary via-info to-primary blur-[100px]"></div>
       </div>
-      <Container>
+      <Container className="relative z-10">
         {/*
         <div className="relative z-20 mb-12 space-y-4 text-center">
           <h2 className="text-4xl font-bold text-black md:text-4xl">
@@ -237,9 +258,20 @@ export default function ResearchPage() {
           </p>
         </div>
         */}
-        <h2 className="mb-5 text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
-          Featured Papers
-        </h2>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <h2 className="text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
+            Featured Papers
+          </h2>
+          <Link
+            href="https://github.com/StabilityNexus/Papers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/btn flex items-center justify-center gap-2 px-4 py-2 border border-black bg-transparent text-black dark:border-white dark:text-white rounded-lg transition-all duration-300 hover:text-primary hover:border-primary dark:hover:text-primary dark:hover:border-primary text-sm font-semibold shadow-sm w-fit"
+          >
+            <GithubIcon className="h-4 w-4 transition-transform duration-300 group-hover/btn:scale-110" />
+            <span>View Papers Repository</span>
+          </Link>
+        </div>
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredPapers.map((paper, index) => (
             <Link
@@ -248,9 +280,13 @@ export default function ResearchPage() {
               className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none sm:p-6"
             >
               <div
-                className="relative w-full overflow-hidden rounded-md border border-zinc-200/50 bg-white shadow-inner"
+                className="relative w-full overflow-hidden rounded-lg bg-white shadow-2xl transition-all duration-300 group-hover:shadow-zinc-900/20"
                 style={{ aspectRatio: "3/4" }}
               >
+                <div className="absolute top-2.5 right-2.5 z-10 flex h-7 w-7 items-center justify-center rounded bg-white text-zinc-950 border border-zinc-200 shadow-md transition-all duration-300 hover:bg-zinc-50 hover:scale-105 pointer-events-none">
+                  <ExternalLink className="h-3.5 w-3.5 text-zinc-950" />
+                </div>
+
                 {paper.image ? (
                   <Image
                     src={paper.image}
