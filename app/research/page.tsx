@@ -1,3 +1,4 @@
+import { ComponentProps } from "react"
 import Container from "@/components/container"
 // import { CallToActionResearch } from "@/components/cta"
 import CTA from "@/components/cta"
@@ -5,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
-const GithubIcon = ({ className, ...props }: React.ComponentProps<"svg">) => (
+const GithubIcon = ({ className, ...props }: ComponentProps<"svg">) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -280,11 +281,10 @@ export default function ResearchPage() {
               className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-4 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none sm:p-6"
             >
               <div
-                className="relative w-full overflow-hidden rounded-lg bg-white shadow-2xl transition-all duration-300 group-hover:shadow-zinc-900/20"
-                style={{ aspectRatio: "3/4" }}
+                className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-white shadow-2xl transition-all duration-300 group-hover:shadow-zinc-900/20"
               >
-                <div className="absolute top-2.5 right-2.5 z-10 flex h-7 w-7 items-center justify-center rounded bg-white text-zinc-950 border border-zinc-200 shadow-md transition-all duration-300 hover:bg-zinc-50 hover:scale-105 pointer-events-none">
-                  <ExternalLink className="h-3.5 w-3.5 text-zinc-950" />
+                <div className="pointer-events-none absolute right-2.5 top-2.5 z-10 flex size-7 items-center justify-center rounded border border-zinc-200 bg-white text-zinc-950 shadow-md transition-all duration-300 hover:scale-105 hover:bg-zinc-50">
+                  <ExternalLink className="size-3.5 text-zinc-950" aria-hidden="true" />
                 </div>
 
                 {paper.image ? (
@@ -296,9 +296,9 @@ export default function ResearchPage() {
                     className="object-contain transition duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-white transition duration-500 group-hover:scale-105">
+                  <div className="flex size-full items-center justify-center bg-white transition duration-500 group-hover:scale-105">
                     <svg
-                      className="h-16 w-16 text-zinc-300"
+                      className="size-16 text-zinc-300"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
