@@ -1,6 +1,6 @@
 "use client"
 
-import { ComponentProps, useState } from "react"
+import { useState, type ComponentProps } from "react"
 import Container from "@/components/container"
 // import { CallToActionResearch } from "@/components/cta"
 import CTA from "@/components/cta"
@@ -398,9 +398,10 @@ export default function ResearchPage() {
                     className="absolute inset-0 h-full w-full border-0"
                   ></iframe>
                 ) : (
-                  <div 
+                  <button 
                     onClick={() => setIsPlaying(true)}
-                    className="group/thumb absolute inset-0 size-full cursor-pointer"
+                    className="group/thumb absolute inset-0 size-full cursor-pointer bg-transparent border-0 p-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                    aria-label={`Play video: ${activeVideo.title}`}
                   >
                     <img
                       src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
@@ -422,7 +423,7 @@ export default function ResearchPage() {
                         </svg>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 )}
               </div>
             </div>
