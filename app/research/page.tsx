@@ -1,4 +1,6 @@
-import { ComponentProps } from "react"
+"use client"
+
+import { useState, type ComponentProps } from "react"
 import Container from "@/components/container"
 // import { CallToActionResearch } from "@/components/cta"
 import CTA from "@/components/cta"
@@ -164,83 +166,76 @@ const featuredPapers = [
   },
 ]
 
-const featuredVideos = [
+const videos = [
   {
-    title:
-      "Signs of Incoherence, Ineffectiveness, Insufficiency and Inadequacy in Stablecoin Regulations",
-    description: "Bruno Woltzenlogel Paleo, PhD",
-    date: "3rd March 2025",
-    image: "./videos/regulation.png",
-    link: "https://www.youtube.com/watch?v=AmRRDpquGi8",
+    title: "Money Creation with Elastic Supply via Trust and Blockchain Assets in Global Digital P2P Environment",
+    id: "gTwKxizAXZQ",
+    duration: "36:13",
   },
   {
-    title: "The Gluon Stabilization Protocol",
-    description: "Bruno Woltzenlogel Paleo, PhD",
-    date: "3rd Jul 2023",
-    image: "./videos/gluon.png",
-    link: "https://www.youtube.com/watch?v=tnvm1we6xts",
+    title: "Djed Shu Stablecoin Protocol",
+    id: "VKPsaCQO_j4",
+    duration: "35:03",
   },
   {
-    title: "Formalization of Blockchain Oracles in Coq",
-    description: "Prof. Giselle Reis",
-    date: "12th Jun 2023",
-    image: "./videos/types.png",
-    link: "https://media.upv.es/#/portal/video/14bf81a0-34f9-11ee-8317-3dc1d7f6252c",
+    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 1)",
+    id: "2KPy_K2Ux6U",
+    duration: "08:29",
   },
   {
-    title: "Ideas for Improvements of the Djed Stablecoin Protocol",
-    description: "Bruno Woltzenlogel Paleo, PhD",
-    date: "11th Aug 2022",
-    image: "./videos/improvements.png",
-    link: "https://www.youtube.com/watch?v=yTgapwydOW0",
+    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 2)",
+    id: "q9mIFaK5Gp0",
+    duration: "16:25",
   },
   {
-    title: "BGIN Stablecoin Panel",
-    description: "Djed Alliance and Circle (USDC)",
-    date: "2nd Aug 2022",
-    image: "./videos/bgin.png",
-    link: "https://tube.switch.ch/videos/9teQZqWD5x",
+    title: "Gluon W",
+    id: "oP5ni0EH9dc",
+    duration: "10:22",
   },
   {
-    title: "Djed Stablecoin on Cardano",
-    description: "David (IOG)",
-    date: "27th Oct 2021",
-    image: "./videos/cardano.png",
-    link: "https://www.youtube.com/watch?v=5-Ozaf_aGNM",
+    title: "Gluon W Stablecoin Protocol - Formal Verification",
+    id: "HIYKZNNVM-4",
+    duration: "13:17",
   },
   {
-    title: "Overview of SigmaUSD's Smart Contracts",
-    description: "Amitabh Saxeena",
-    date: "23rd Jan 2021",
-    image: "./videos/sigmausd.png",
-    link: "",
+    title: "Gluon W - Formal Verification",
+    id: "MU0MYz-x8kY",
+    duration: "09:08",
   },
   {
-    title: "The Release of Agenor",
-    description: "Robert Kornacki",
-    date: "23rd Jan 2021",
-    image: "./videos/agenor.png",
-    link: "https://youtu.be/zG-rxMCDIa0?t=10935",
+    title: "Orb Oracle Protocol",
+    id: "uK_8Baygmrs",
+    duration: "19:56",
   },
   {
-    title: "A Pegged and Crypto-backed Algorithmic Stablecoin",
-    description: "Bruno Woltzenlogel Paleo, PhD",
-    date: "23rd Jan 2021",
-    image: "./videos/djed.png",
-    link: "https://youtu.be/zG-rxMCDIa0?t=8367",
+    title: "Fate Protocol - Perpetual Prediction Pools",
+    id: "isSIH_ohN7U",
+    duration: "14:27",
   },
   {
-    title: "The Djed Stablecoin Protocol",
-    description: "Djed Alliance",
-    date: "13th Jul 2023",
-    image: "./videos/whiteboard.png",
-    link: "https://youtu.be/zG-rxMCDIa0?t=8285",
+    title: "Raindrop Staking and Reward Distribution Protocol",
+    id: "bhLfSUhguU4",
+    duration: "06:01",
+  },
+  {
+    title: "Succinct Non-Interactive Share Proofs in Proof-of-Work Cryptocurrencies",
+    id: "7nru1JSW9Ak",
+    duration: "35:39",
+  },
+  {
+    title: "zkFFT Extending Halo2 with Vector Commitments & More",
+    id: "f6sm_RAdRA0",
+    duration: "12:28",
   },
 ]
 
 export default function ResearchPage() {
+  const [activeVideo, setActiveVideo] = useState(videos[0])
+  const [isPlaying, setIsPlaying] = useState(false)
   return (
     <div className="relative pt-12">
+      <link rel="preconnect" href="https://www.youtube-nocookie.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://i.ytimg.com" crossOrigin="anonymous" />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40"
@@ -380,84 +375,118 @@ export default function ResearchPage() {
             </Link>
           ))}
         </div>
-        <h2 className="mb-5 mt-10 text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
-          Featured Videos
-        </h2>
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {featuredVideos.map((video, index) => (
-            <Link
-              href={video.link}
-              key={index}
-              className="group relative flex h-full flex-col justify-between rounded-lg border border-zinc-200 p-6 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none"
-            >
-              <div className="relative aspect-video w-full overflow-hidden rounded-md">
-                <Image
-                  src={video.image}
-                  alt="Research video cover"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="relative mt-2 grow">
-                <h3 className="text-2xl  font-semibold leading-6 tracking-tight text-gray-800 dark:text-gray-100">
-                  {video.title}
-                </h3>
-                {/* <div className="my-3 flex w-fit items-center gap-2 rounded-md bg-zinc-100 p-2">
-                  <svg
-                    viewBox="0 0 24 24"
-                    height={20}
-                    width={20}
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+        <div className="mb-6 mt-10 flex flex-col gap-2">
+          <h2 className="text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
+            Research Talks
+          </h2>
+          <p className="text-base text-gray-600 dark:text-gray-300">
+            Talks, panels, and presentations by Stability Nexus researchers — covering stablecoins, oracles, prediction markets, and formal verification.
+          </p>
+        </div>
+
+        <div className="mb-20 w-full rounded-lg border border-zinc-200 bg-white p-4 shadow-xl dark:border-zinc-700 dark:bg-gray-800/50 dark:shadow-none sm:p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            {/* Player */}
+            <div className="lg:col-span-2">
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-950">
+                {isPlaying ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${activeVideo.id}?autoplay=1&rel=0`}
+                    title={activeVideo.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full border-0"
+                  ></iframe>
+                ) : (
+                  <button 
+                    onClick={() => setIsPlaying(true)}
+                    className="group/thumb absolute inset-0 size-full cursor-pointer bg-transparent border-0 p-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                    aria-label={`Play video: ${activeVideo.title}`}
                   >
-                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                    <img
+                      src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
+                      alt={activeVideo.title}
+                      className="size-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+                      loading="lazy"
                     />
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        opacity="0.2"
-                        d="M3 10.312C3 5.93757 3.93757 5 8.312 5H15.688C20.0624 5 21 5.93757 21 10.312V15.688C21 20.0624 20.0624 21 15.688 21H8.312C3.93757 21 3 20.0624 3 15.688V10.312Z"
-                        fill="#323232"
-                      />
-                      <path
-                        d="M3 10.312C3 5.93757 3.93757 5 8.312 5H15.688C20.0624 5 21 5.93757 21
-                        10.312V15.688C21 20.0624 20.0624 21 15.688 21H8.312C3.93757 21 3 20.0624 3
-                        15.688V10.312Z"
-                        stroke="#323232"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M6 5L6 3"
-                        stroke="#323232"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M18 5L18 3"
-                        stroke="#323232"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M7 9H17"
-                        stroke="#323232"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </g>
-                  </svg>
-                  <span className="text-sm font-medium text-black">
-                    {video.date}
-                  </span>
-                </div> */}
-                <p className="mt-2 text-black dark:text-gray-300">{video.description}</p>
+                    <div className="absolute inset-0 bg-black/20 group-hover/thumb:bg-black/40 transition-colors duration-300" />
+                    
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex items-center justify-center size-16 rounded-full bg-white/90 dark:bg-black/85 text-black dark:text-white shadow-2xl transition-all duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-red-600 group-hover/thumb:text-white group-active/thumb:scale-95">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          viewBox="0 0 24 24" 
+                          fill="currentColor" 
+                          className="size-8 translate-x-0.5"
+                        >
+                          <path d="M8 5.14v14l11-7-11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                )}
               </div>
+            </div>
+
+            {/* Sidebar list */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 px-1 mb-1">
+                Playlist Videos ({videos.length})
+              </span>
+              <div className="flex flex-col gap-2 overflow-y-auto max-h-[300px] lg:max-h-[350px] pr-1 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-700">
+                {videos.map((video, idx) => (
+                  <button
+                    key={video.id}
+                    onClick={() => {
+                      setActiveVideo(video)
+                      setIsPlaying(true)
+                    }}
+                    className={`flex items-start gap-3 p-2 rounded-lg border text-left transition-all duration-200 active:scale-[0.98] ${
+                      activeVideo.id === video.id
+                        ? "bg-zinc-100 border-zinc-300 dark:bg-zinc-700/50 dark:border-zinc-600 text-black dark:text-white"
+                        : "bg-transparent border-transparent hover:bg-zinc-50 dark:hover:bg-zinc-800/40 text-gray-600 dark:text-gray-400"
+                    }`}
+                  >
+                    <span className="flex items-center justify-center size-5 rounded-full bg-zinc-200 dark:bg-zinc-700 text-[10px] font-bold text-gray-700 dark:text-gray-300 shrink-0 mt-0.5">
+                      {idx + 1}
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold leading-tight line-clamp-2">
+                        {video.title}
+                      </span>
+                      <span className="text-[10px] text-gray-400 dark:text-gray-500">
+                        {video.duration}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 border-t border-zinc-100 dark:border-zinc-700">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-sm font-bold tracking-wider text-black dark:text-white" style={{ fontVariant: "small-caps" }}>
+                Stability Nexus · YouTube
+              </span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">
+                All research talks, workshops, and conference presentations
+              </span>
+            </div>
+            <Link
+              href="https://youtube.com/@StabilityNexus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/btn flex items-center justify-center gap-2 px-4 py-2 border border-black bg-transparent text-black dark:border-white dark:text-white rounded-lg transition-all duration-300 hover:text-primary hover:border-primary dark:hover:text-primary dark:hover:border-primary text-sm font-semibold shadow-sm w-fit active:scale-95 hover:scale-[1.02]"
+            >
+              <span>
+                View channel{" "}
+                <span className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1">
+                  →
+                </span>
+              </span>
             </Link>
-          ))}
+          </div>
         </div>
       </Container>
       <CTA
