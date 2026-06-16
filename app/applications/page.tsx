@@ -2,7 +2,7 @@ import Card from "@/components/card"
 import Container from "@/components/container"
 import CTA from "@/components/cta"
 
-const protocols1 = [
+const applications = [
   {
     title: "Djed",
     description: "Stablecoin Protocol",
@@ -83,7 +83,7 @@ const protocols1 = [
   },
 ]
 
-export default function ProtocolsPage() {
+export default function ApplicationsPage() {
   return (
     <div className="relative pt-12">
       <div
@@ -96,13 +96,13 @@ export default function ProtocolsPage() {
 
       <Container>
         <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {protocols1.map((protocol, index) => (
+          {applications.map((application, index) => (
             <Card
-              key={protocol.title}
-              image={protocol.image}
-              title={protocol.title}
-              description={protocol.description}
-              link={protocol.link}
+              key={application.title}
+              image={application.image}
+              title={application.title}
+              description={application.description}
+              link={application.link}
             />
 
           ))}

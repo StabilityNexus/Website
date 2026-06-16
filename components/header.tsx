@@ -13,8 +13,8 @@ const links = [
   //   label: "Blockchains",
   // },
   {
-    to: "/protocols",
-    label: "Protocols",
+    to: "/applications",
+    label: "Applications",
   },
   {
     to: "/research",
