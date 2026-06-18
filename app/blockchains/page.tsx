@@ -5,46 +5,53 @@ import CTA from "@/components/cta"
 const blockchains1 = [
   {
     title: "Ergo",
-    description: "",
-    image: "./blockchains/ergo.svg",
+    description:
+      "A resilient platform for contract-based financial applications with proof-of-work consensus.",
+    image: "/blockchains/ergo.svg",
     link: "https://ergoplatform.org/en/",
   },
   {
     title: "Cardano",
-    description: "",
-    image: "./blockchains/cardano.svg",
+    description:
+      "A decentralized proof-of-stake blockchain platform designed for security and sustainability.",
+    image: "/blockchains/cardano.svg",
     link: "https://cardano.org/",
   },
   {
     title: "Ethereum Classic",
-    description: "",
-    image: "./blockchains/ethereum-classic.svg",
+    description:
+      "A decentralized, trustless, and secure smart contract platform that preserves the original Ethereum chain.",
+    image: "/blockchains/ethereum-classic.svg",
     link: "https://ethereumclassic.org/",
   },
 ]
 const blockchains2 = [
   {
     title: "Milkomeda",
-    description: "",
-    image: "./blockchains/milkomeda.svg",
+    description:
+      "An EVM-compatible layer-2 network bringing smart contract capabilities to non-EVM blockchains.",
+    image: "/blockchains/milkomeda.svg",
     link: "https://milkomeda.com/",
   },
   {
     title: "Alephium",
-    description: "",
-    image: "./blockchains/alephium.svg",
+    description:
+      "A secure, fast, and scalable sharded blockchain platform for decentralized finance and smart contracts.",
+    image: "/blockchains/alephium.svg",
     link: "https://alephium.org/",
   },
   {
     title: "Sui",
-    description: "",
-    image: "./blockchains/sui.svg",
+    description:
+      "A high-performance Layer-1 blockchain with low-latency and high throughput using the Move language.",
+    image: "/blockchains/sui.svg",
     link: "https://sui.io/",
   },
   {
     title: "Citrea",
-    description: "",
-    image: "./blockchains/citrea.png",
+    description:
+      "The first rollup that enhances Bitcoin's block space with zero-knowledge smart contracts.",
+    image: "/blockchains/citrea.png",
     link: "https://citrea.xyz/",
   },
 ]

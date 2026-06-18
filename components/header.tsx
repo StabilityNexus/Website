@@ -8,10 +8,10 @@ import Container from "./container"
 import { ModeToggle } from "./mode-toggle"
 
 const links = [
-  // {
-  //   to: "/blockchains",
-  //   label: "Blockchains",
-  // },
+  {
+    to: "/blockchains",
+    label: "Blockchains",
+  },
   {
     to: "/applications",
     label: "Applications",
@@ -114,7 +114,7 @@ export default function Header() {
                 <li key={index}>
                   <Link
                     href={link.to}
-                    className={`block font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
+                    className={`block font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to ? "font-semibold underline underline-offset-4" : ""}`}
                   >
                     <span>{link.label}</span>
                   </Link>
@@ -137,7 +137,7 @@ export default function Header() {
             href={link.to}
             key={index}
             onClick={toggleMenu}
-            className={`mr-6 block w-full py-2 text-right font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to && "font-semibold underline underline-offset-4"}`}
+            className={`mr-6 block w-full py-2 text-right font-medium transition hover:text-primary dark:hover:text-white md:px-4 ${path === link.to ? "font-semibold underline underline-offset-4" : ""}`}
           >
             <span>{link.label}</span>
           </Link>
