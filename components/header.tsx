@@ -71,7 +71,7 @@ export default function Header() {
                 unoptimized
                 fetchPriority="high"
                 loading="lazy"
-                src="./logo.png"
+                src="/logo.png"
                 alt="Stability Nexus Logo"
                 height={50}
                 width={50}
