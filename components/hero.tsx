@@ -50,9 +50,8 @@ export default function Hero() {
           <div className="flex justify-center order-first lg:order-last w-full">
             <Image
               unoptimized
-              fetchPriority="high"
-              loading="lazy"
-              src="./logo-animated.gif"
+              priority
+              src="/logo-animated.gif"
               alt="Stability Nexus Logo"
               height={290}
               width={290}
