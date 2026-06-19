@@ -131,6 +131,12 @@ export default function Footer() {
               <item.icon className="size-6" aria-hidden="true" />
             </Link>
           ))}
+          <Link
+            href="https://docs.stability.nexus/"
+            className="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition pl-2"
+          >
+            Docs
+          </Link>
         </div>
       </div>
     </footer>

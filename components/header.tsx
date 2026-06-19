@@ -13,28 +13,20 @@ const links = [
   //   label: "Blockchains",
   // },
   {
-    to: "/applications",
-    label: "Applications",
-  },
-  {
     to: "/research",
     label: "Research",
+  },
+  {
+    to: "/applications",
+    label: "Applications",
   },
   {
     to: "https://workshop.stability.nexus",
     label: "Workshop",
   },
   {
-    to: "https://hackathon.stability.nexus",
-    label: "Hackathon",
-  },
-  {
     to: "https://viewpoints.stability.nexus/",
-    label: "Articles",
-  },
-  {
-    to: "https://docs.stability.nexus/",
-    label: "Docs",
+    label: "Viewpoints",
   },
   // {
   //   to: "https://docs.stability.nexus/about-us/the-stable-order",
