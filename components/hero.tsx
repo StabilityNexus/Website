@@ -13,15 +13,17 @@ export default function Hero() {
         <div className="h-56 bg-gradient-to-r from-secondary via-info to-primary blur-[100px]"></div>
       </div>
       <Container>
-        <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[53%_47%] lg:gap-[90px] items-center">
+        <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[53%_47%] lg:gap-12 xl:gap-[90px] items-center">
 
           {/* Text Content (Headline, Subtitle, Buttons) */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:ml-14">
-            <h1 className="font-serif text-3xl md:text-[48px] lg:text-[50px] font-normal text-black dark:text-white leading-[1.3] tracking-tight max-w-xl">
-              <span className="text-[#FFBF00] dark:text-[#FFBF00]">Research and Development</span><br className="hidden lg:inline" />
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:ml-4 xl:ml-14">
+            <h1 className="font-serif text-3xl md:text-[44px] lg:text-[38px] xl:text-[50px] font-normal text-black dark:text-white leading-[1.3] tracking-tight max-w-xl">
+              <span className="text-[#FFBF00] dark:text-[#FFBF00]">Research and Development</span>{" "}
+              <br className="hidden lg:inline" />
               <span className="bg-gradient-to-r from-secondary via-info to-primary bg-clip-text text-transparent">
                 of Novel Technologies for
-              </span><br className="hidden lg:inline" />
+              </span>{" "}
+              <br className="hidden lg:inline" />
               <span className="text-primary">Greater Global Stability</span>
             </h1>
             <p className="mt-12 text-base md:text-lg font-normal text-gray-700 dark:text-gray-300 max-w-2xl">
