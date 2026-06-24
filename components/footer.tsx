@@ -136,6 +136,8 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className=" rounded-full bg-secondary/30 p-2 hover:bg-secondary"
             >
               <span className="sr-only">{item.name}</span>
