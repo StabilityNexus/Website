@@ -67,7 +67,7 @@ export default function ResearchHighlights() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto">
           {featuredPapers.map((paper, index) => (
             <Link
-              key={index}
+              key={paper.link}
               href={paper.link}
               target="_blank"
               rel="noopener noreferrer"
