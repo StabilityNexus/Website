@@ -375,7 +375,7 @@ export default function ResearchPage() {
             </Link>
           ))}
         </div>
-        <div className="mb-6 mt-10 flex flex-col gap-2">
+        <div id="talks" className="mb-6 mt-10 flex flex-col gap-2 scroll-mt-20">
           <h2 className="text-2xl font-bold text-black underline decoration-dashed underline-offset-4 dark:text-white">
             Research Talks
           </h2>
