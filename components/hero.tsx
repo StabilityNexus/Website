@@ -7,7 +7,7 @@ export default function Hero() {
     <div className="relative py-10 md:pt-[130px] md:pb-[80px]" id="home">
       <div
         aria-hidden="true"
-        className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40"
+        className="fixed top-[120px] left-0 right-0 bottom-0 grid grid-cols-2 -space-x-52 opacity-40 pointer-events-none -z-10"
       >
         <div className="h-56 bg-gradient-to-r from-primary via-info to-secondary blur-[100px]"></div>
         <div className="h-56 bg-gradient-to-r from-secondary via-info to-primary blur-[100px]"></div>
