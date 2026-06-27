@@ -22,8 +22,15 @@
     animation: marquee 25s linear infinite;
   }
 
-  .pause-on-hover:hover .animate-marquee {
+  .pause-on-hover:hover .animate-marquee,
+  .pause-on-hover:focus-within .animate-marquee {
     animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none !important;
+    }
   }
 }
 

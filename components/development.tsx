@@ -146,7 +146,7 @@ export default function Development() {
                       href={chain.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus:outline-none"
+                      className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 rounded-lg"
                     >
                       <Image
                         src={chain.image}
@@ -157,18 +157,20 @@ export default function Development() {
                       />
                     </Link>
                   ))}
-                  {/* Second Duplicate Set for Infinite Scroll */}
+                  {/* Second Duplicate Set for Infinite Scroll (decorative only) */}
                   {blockchains.map((chain, index) => (
                     <Link
                       key={`${chain.title}-2-${index}`}
                       href={chain.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus:outline-none"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 rounded-lg"
                     >
                       <Image
                         src={chain.image}
-                        alt={`${chain.title} logo`}
+                        alt=""
                         width={120}
                         height={32}
                         className={`h-6 sm:h-8 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${chain.darkClass}`}
@@ -185,7 +187,7 @@ export default function Development() {
                     href={chain.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus:outline-none"
+                    className="inline-flex items-center justify-center shrink-0 w-[110px] sm:w-[140px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 rounded-lg"
                   >
                     <Image
                       src={chain.image}
