@@ -168,54 +168,19 @@ const featuredPapers = [
 
 const videos = [
   {
-    title: "Money Creation with Elastic Supply via Trust and Blockchain Assets in Global Digital P2P Environment",
-    id: "gTwKxizAXZQ",
-    duration: "36:13",
+    title: "Gluon W± | Bruno Woltzenlogel Paleo | Ergoversary Summit 2023",
+    id: "tnvm1we6xts",
+    duration: "16:06",
   },
   {
-    title: "Djed Shu Stablecoin Protocol",
-    id: "VKPsaCQO_j4",
-    duration: "35:03",
+    title: "ErgoHack Fest | AgeUSD - A Pegged and Crypto-Backed Stablecoin | Bruno Woltzenlogel Paleo",
+    id: "AzTlwT2Weg4",
+    duration: "38:37",
   },
   {
-    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 1)",
-    id: "2KPy_K2Ux6U",
-    duration: "08:29",
-  },
-  {
-    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 2)",
-    id: "q9mIFaK5Gp0",
-    duration: "16:25",
-  },
-  {
-    title: "Gluon W",
-    id: "oP5ni0EH9dc",
-    duration: "10:22",
-  },
-  {
-    title: "Gluon W Stablecoin Protocol - Formal Verification",
-    id: "HIYKZNNVM-4",
-    duration: "13:17",
-  },
-  {
-    title: "Gluon W - Formal Verification",
-    id: "MU0MYz-x8kY",
-    duration: "09:08",
-  },
-  {
-    title: "Orb Oracle Protocol",
-    id: "uK_8Baygmrs",
-    duration: "19:56",
-  },
-  {
-    title: "Fate Protocol - Perpetual Prediction Pools",
-    id: "isSIH_ohN7U",
-    duration: "14:27",
-  },
-  {
-    title: "Raindrop Staking and Reward Distribution Protocol",
-    id: "bhLfSUhguU4",
-    duration: "06:01",
+    title: "Djed Stablecoin On Cardano",
+    id: "5-Ozaf_aGNM",
+    duration: "6:39",
   },
   {
     title: "Succinct Non-Interactive Share Proofs in Proof-of-Work Cryptocurrencies",
@@ -223,11 +188,97 @@ const videos = [
     duration: "35:39",
   },
   {
+    title: "Raindrop Staking and Reward Distribution Protocol",
+    id: "bhLfSUhguU4",
+    duration: "6:01",
+  },
+  {
+    title: "Fate Protocol - Perpetual Prediction Pools",
+    id: "isSIH_ohN7U",
+    duration: "14:27",
+  },
+  {
+    title: "Orb Oracle Protocol",
+    id: "uK_8Baygmrs",
+    duration: "19:56",
+  },
+  {
+    title: "Gluon W - Formal Verification",
+    id: "MU0MYz-x8kY",
+    duration: "9:08",
+  },
+  {
+    title: "Gluon W Stablecoin Protocol - Formal Verification",
+    id: "HIYKZNNVM-4",
+    duration: "13:17",
+  },
+  {
+    title: "Gluon W",
+    id: "oP5ni0EH9dc",
+    duration: "10:22",
+  },
+  {
+    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 2)",
+    id: "q9mIFaK5Gp0",
+    duration: "16:25",
+  },
+  {
+    title: "Dexy - Simple Stablecoin Design Based on Algorithmic Central Bank (Part 1)",
+    id: "2KPy_K2Ux6U",
+    duration: "8:29",
+  },
+  {
+    title: "Djed Shu Stablecoin Protocol",
+    id: "VKPsaCQO_j4",
+    duration: "35:03",
+  },
+  {
+    title: "Money Creation with Elastic Supply via Trust and Blockchain Assets in Global Digital P2P Environment",
+    id: "gTwKxizAXZQ",
+    duration: "36:13",
+  },
+  {
+    title: "Gluon Update - Ergoversary",
+    id: "qiO4H7fSx-E",
+    duration: "4:02",
+  },
+  {
+    title: "Bene Proof-of-Funding Fundraising Platform - Ergoversary",
+    id: "zCHHsO9is10",
+    duration: "15:25",
+  },
+  {
+    title: "Issues in Stablecoin Regulations?",
+    id: "AmRRDpquGi8",
+    duration: "10:46",
+  },
+  {
+    title: "BGIN Block #6 July 27, 2022 - Stablecoins Panel",
+    id: "dJtw950OOvo",
+    duration: "48:57",
+  },
+  {
+    title: "Ideas for improvement of the Djed Protocol - Dr. Bruno W Paleo | Ergo Summit 2022 - DeFi",
+    id: "yTgapwydOW0",
+    duration: "37:01",
+  },
+  {
+    title: "Ergo Summit 2021 - Entering The New Era - Announcing AgeUSD & The Hardening Upgrade",
+    id: "zG-rxMCDIa0",
+    duration: "8:37:13",
+  },
+  {
     title: "zkFFT Extending Halo2 with Vector Commitments & More",
     id: "f6sm_RAdRA0",
     duration: "12:28",
   },
+  {
+    title: "Formalization of Oracles",
+    id: "N7vdAx71zVg",
+    duration: "23:11",
+  },
 ]
+
 
 export default function ResearchPage() {
   const [activeVideo, setActiveVideo] = useState(videos[0])
