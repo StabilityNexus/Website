@@ -7,3 +7,30 @@
     @apply bg-white text-black dark:bg-gray-900 dark:text-gray-50 transition-colors duration-300;
   }
 }
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-50% - 1.5rem));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .pause-on-hover:hover .animate-marquee,
+  .pause-on-hover:focus-within .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none !important;
+    }
+  }
+}
+
