@@ -110,6 +110,8 @@ const applications = [
     category: "Hackathon",
     status: "Beta",
     blockchains: ["ergo"],
+    isLargeLogo: true,
+    invertLogo: true,
   },
   {
     title: "TNT",
@@ -145,6 +147,8 @@ export default function ApplicationsPage() {
               category={application.category}
               status={application.status}
               blockchains={application.blockchains}
+              isLargeLogo={application.isLargeLogo}
+              invertLogo={application.invertLogo}
             />
           ))}
         </div>

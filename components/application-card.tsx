@@ -8,8 +8,18 @@ interface Props {
   description: string
   link: string
   category?: string
-  status?: "Live" | "Soon" | "Coming Soon" | "Beta" | string
+  status?: "Live" | "Soon" | "Coming Soon" | "Beta" | (string & {})
   blockchains?: string[]
+  isLargeLogo?: boolean
+  invertLogo?: boolean
+}
+
+const getBlockchainLogoUrl = (chain: string) => {
+  const extensions: Record<string, string> = {
+    citrea: "png",
+  }
+  const ext = extensions[chain.toLowerCase()] || "svg"
+  return `/blockchains/${chain}.${ext}`
 }
 
 const ApplicationCard: React.FC<Props> = ({
@@ -20,6 +30,8 @@ const ApplicationCard: React.FC<Props> = ({
   category,
   status,
   blockchains,
+  isLargeLogo = false,
+  invertLogo = false,
 }) => {
   // Determine status badge colors
   const getStatusStyles = (statusVal?: string) => {
@@ -64,15 +76,14 @@ const ApplicationCard: React.FC<Props> = ({
         <div className="relative h-48 w-full overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/10 border-b border-zinc-200/50 dark:border-zinc-800/50 flex items-center justify-center">
           {/* Subtle background glow for logos */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,139,34,0.03),transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,197,23,0.02),transparent_70%)] pointer-events-none" />
-          <div className={`relative transition-transform duration-500 group-hover:scale-105 ${title.toLowerCase() === "hackhub" ? "h-36 w-64" : "h-32 w-56"}`}>
+          <div className={`relative transition-transform duration-500 group-hover:scale-105 ${isLargeLogo ? "h-36 w-64" : "h-32 w-56"}`}>
             <Image
               src={image}
               alt={`${title} Logo`}
               fill
               sizes="(max-width: 768px) 200px, 280px"
-              className={`object-contain ${title.toLowerCase() === "hackhub" ? "p-0 dark:brightness-0 dark:invert" : "p-1.5"}`}
+              className={`object-contain ${isLargeLogo ? "p-0" : "p-1.5"} ${invertLogo ? "dark:brightness-0 dark:invert" : ""}`}
               unoptimized
-              priority
             />
           </div>
         </div>
@@ -113,10 +124,13 @@ const ApplicationCard: React.FC<Props> = ({
                   className="relative h-7 w-7 rounded-full ring-2 ring-white dark:ring-zinc-800/80 bg-white overflow-hidden shadow-sm flex items-center justify-center"
                   title={`Deployed on ${chain.charAt(0).toUpperCase() + chain.slice(1)}`}
                 >
-                  <img
-                    src={chain === "citrea" ? "/blockchains/citrea.png" : `/blockchains/${chain}.svg`}
+                  <Image
+                    src={getBlockchainLogoUrl(chain)}
                     alt={`${chain} logo`}
-                    className="h-4.5 w-4.5 object-contain"
+                    width={18}
+                    height={18}
+                    className="object-contain"
+                    unoptimized
                   />
                 </div>
               ))}
