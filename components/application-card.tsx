@@ -50,9 +50,6 @@ const ApplicationCard: React.FC<Props> = ({
   }
 
   const statusStyles = getStatusStyles(status)
-  
-  // Check if the image is a logo or a full-bleed screenshot
-  const isLogo = image.includes("/logos/") && !image.includes("-preview")
 
   return (
     <Link href={link} target="_blank" rel="noopener noreferrer" className="group flex flex-col h-full relative">
@@ -65,31 +62,19 @@ const ApplicationCard: React.FC<Props> = ({
 
         {/* Image Container (Exactly h-48) */}
         <div className="relative h-48 w-full overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/10 border-b border-zinc-200/50 dark:border-zinc-800/50 flex items-center justify-center">
-          {isLogo ? (
-            <>
-              {/* Subtle background glow for logos */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,139,34,0.03),transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,197,23,0.02),transparent_70%)] pointer-events-none" />
-              <div className={`relative transition-transform duration-500 group-hover:scale-105 ${title.toLowerCase() === "hackhub" ? "h-36 w-64" : "h-32 w-56"}`}>
-                <Image
-                  src={image}
-                  alt={`${title} Logo`}
-                  fill
-                  sizes="(max-width: 768px) 200px, 280px"
-                  className={`object-contain ${title.toLowerCase() === "hackhub" ? "p-0 dark:brightness-0 dark:invert" : "p-1.5"}`}
-                  loading="lazy"
-                />
-              </div>
-            </>
-          ) : (
+          {/* Subtle background glow for logos */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,139,34,0.03),transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,197,23,0.02),transparent_70%)] pointer-events-none" />
+          <div className={`relative transition-transform duration-500 group-hover:scale-105 ${title.toLowerCase() === "hackhub" ? "h-36 w-64" : "h-32 w-56"}`}>
             <Image
               src={image}
-              alt={`${title} Preview`}
+              alt={`${title} Logo`}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
+              sizes="(max-width: 768px) 200px, 280px"
+              className={`object-contain ${title.toLowerCase() === "hackhub" ? "p-0 dark:brightness-0 dark:invert" : "p-1.5"}`}
+              unoptimized
+              priority
             />
-          )}
+          </div>
         </div>
 
         {/* Text Content */}
