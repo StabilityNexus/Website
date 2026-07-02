@@ -1,85 +1,124 @@
-import Card from "@/components/card"
+import ApplicationCard from "@/components/application-card"
 import Container from "@/components/container"
 import CTA from "@/components/cta"
 
 const applications = [
   {
     title: "Djed",
-    description: "Stablecoin Protocol",
+    description: "An algorithmic stablecoin protocol maintaining a stable peg through a fully backed asset reserve.",
     image: "/logos/djed.svg",
     link: "https://djed.one",
+    category: "DeFi",
+    status: "Live",
+    blockchains: ["ergo", "cardano", "ethereum-classic", "milkomeda"],
   },
   {
     title: "Gluon",
-    description: "Stablecoin Protocol",
+    description: "A stablecoin protocol designed to provide capital efficiency and robust peg maintenance.",
     image: "/logos/gluon.png",
     link: "https://gluon.gold",
+    category: "DeFi",
+    status: "Live",
+    blockchains: ["ergo"],
   },
   {
     title: "hodlCoin",
-    description: "Staking Protocol",
+    description: "A decentralized staking protocol enabling users to earn yield on their assets securely.",
     image: "/logos/hodlcoin.svg",
     link: "https://hodlcoin.co.in",
+    category: "DeFi",
+    status: "Live",
+    blockchains: ["ergo"],
   },
   {
     title: "Hammer",
-    description: "Auction House",
+    description: "A decentralized auction house for secure, transparent, and bidding-based asset sales.",
     image: "/logos/hammer.svg",
     link: "https://hammer-auctions.stability.nexus/",
+    category: "Auction",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
-    title: "Destiny (Soon!)",
-    description: "Prediction Pools",
+    title: "Destiny",
+    description: "An innovative prediction pool platform allowing users to forecast future outcomes.",
     image: "/logos/destiny.png",
     link: "https://forecast.bid",
+    category: "Prediction",
+    status: "Coming Soon",
+    blockchains: ["ergo"],
   },
   {
     title: "Fate",
-    description: "Perpetual Prediction Pools",
+    description: "A perpetual prediction pool protocol for continuous forecasting markets.",
     image: "/logos/destiny.png",
     link: "https://fate.stability.nexus",
+    category: "Prediction",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
     title: "Clowder",
-    description: "Fungible Token Issuance",
+    description: "A user-friendly platform for fungible token issuance and management.",
     image: "/logos/clowder.png",
     link: "https://clowder.stability.nexus",
+    category: "Tokens",
+    status: "Live",
+    blockchains: ["ergo"],
   },
   {
     title: "VouchMe",
-    description: "OnChain Testimonials",
+    description: "An on-chain testimonial and social proof platform for decentralized reputation.",
     image: "/logos/vouchme.png",
     link: "https://vouchme.stability.nexus",
+    category: "Social",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
     title: "Bene",
-    description: "Fundraising",
+    description: "A decentralized fundraising platform supporting community-driven initiatives.",
     image: "/logos/bene.svg",
     link: "https://bene-ergo.stability.nexus",
+    category: "Fundraising",
+    status: "Live",
+    blockchains: ["ergo"],
   },
   {
     title: "FairFund",
-    description: "Fund Distribution",
+    description: "An automated and transparent fund distribution protocol.",
     image: "/logos/fairfund.svg",
     link: "https://fairfund.stability.nexus",
+    category: "Fundraising",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
     title: "Chainvoice",
-    description: "OnChain Invoices",
+    description: "An on-chain invoicing tool designed for seamless Web3 business operations.",
     image: "/logos/chainvoice.png",
     link: "https://chainvoice.stability.nexus",
+    category: "Invoices",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
     title: "HackHub",
-    description: "Hackathon Platform",
+    description: "A comprehensive platform for organizing and participating in Web3 hackathons.",
     image: "/logos/hackhub.png",
     link: "https://hackhub.stability.nexus",
+    category: "Hackathon",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
   {
     title: "TNT",
-    description: "Non-Fungible Trust Token Issuance",
+    description: "A specialized protocol for non-fungible trust token issuance.",
     image: "/logos/tnt.svg",
     link: "https://tnt.stability.nexus",
+    category: "Tokens",
+    status: "Beta",
+    blockchains: ["ergo"],
   },
 ]
 
@@ -95,16 +134,18 @@ export default function ApplicationsPage() {
       </div>
 
       <Container>
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {applications.map((application, index) => (
-            <Card
+            <ApplicationCard
               key={application.title}
               image={application.image}
               title={application.title}
               description={application.description}
               link={application.link}
+              category={application.category}
+              status={application.status}
+              blockchains={application.blockchains}
             />
-
           ))}
         </div>
       </Container>
