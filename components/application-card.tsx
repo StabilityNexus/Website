@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, X } from "lucide-react"
@@ -45,13 +45,21 @@ const ApplicationCard: React.FC<Props> = ({
   invertLogo = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Block background scrolling when modal is open
+  // Block background scrolling and manage focus when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
+      // Put focus inside the modal on open
+      setTimeout(() => {
+        closeButtonRef.current?.focus()
+      }, 0)
     } else {
       document.body.style.overflow = ""
+      // Restore focus to the trigger on close
+      triggerRef.current?.focus()
     }
     return () => {
       document.body.style.overflow = ""
@@ -108,6 +116,8 @@ const ApplicationCard: React.FC<Props> = ({
     <>
       {/* Interactive Card Trigger */}
       <button
+        ref={triggerRef}
+        type="button"
         onClick={() => setIsOpen(true)}
         className="group flex flex-col h-full relative text-left w-full focus:outline-none"
       >
@@ -195,10 +205,15 @@ const ApplicationCard: React.FC<Props> = ({
           {/* Modal Container */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-850 rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col gap-6 animate-in zoom-in-95 duration-200 text-left max-h-[90vh] overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            className="relative w-full max-w-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col gap-6 animate-in zoom-in-95 duration-200 text-left max-h-[90vh] overflow-y-auto"
           >
             {/* Close Button */}
             <button
+              ref={closeButtonRef}
+              type="button"
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg"
               aria-label="Close details"
@@ -233,7 +248,7 @@ const ApplicationCard: React.FC<Props> = ({
                   />
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-white">
+                  <h2 id="modal-title" className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-white">
                     {title}
                   </h2>
                 </div>
@@ -249,7 +264,7 @@ const ApplicationCard: React.FC<Props> = ({
 
             {/* Deployments Breakdown */}
             <div className="flex flex-col gap-3">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-450 dark:text-zinc-500">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
                 Available On:
               </h4>
               <div className="flex flex-col divide-y divide-zinc-100 dark:divide-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/30">
