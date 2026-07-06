@@ -276,68 +276,70 @@ const ApplicationCard: React.FC<Props> = ({
             </div>
 
             {/* Deployments Breakdown */}
-            <div className="flex flex-col gap-3">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                Available On:
-              </h4>
-              <div className="flex flex-col divide-y divide-zinc-100 dark:divide-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/30">
-                {deployments.map((deployment) => {
-                  const chainName = deployment.chain.charAt(0).toUpperCase() + deployment.chain.slice(1)
-                  const isInteractable = deployment.status.toLowerCase() === "live" || deployment.status.toLowerCase() === "beta"
-                  const deployStyles = getStatusStyles(deployment.status)
+            {deployments.length > 0 && (
+              <div className="flex flex-col gap-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                  Available On:
+                </h4>
+                <div className="flex flex-col divide-y divide-zinc-100 dark:divide-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/30">
+                  {deployments.map((deployment) => {
+                    const chainName = deployment.chain.charAt(0).toUpperCase() + deployment.chain.slice(1)
+                    const isInteractable = deployment.status.toLowerCase() === "live" || deployment.status.toLowerCase() === "beta"
+                    const deployStyles = getStatusStyles(deployment.status)
 
-                  return (
-                    <div
-                      key={deployment.chain}
-                      className="flex items-center justify-between p-4 gap-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="relative h-8 w-8 rounded-full ring-2 ring-zinc-200 dark:ring-zinc-800 bg-white overflow-hidden flex items-center justify-center flex-shrink-0">
-                          <Image
-                            src={getBlockchainLogoUrl(deployment.chain)}
-                            alt={`${deployment.chain} logo`}
-                            width={20}
-                            height={20}
-                            className="object-contain"
-                            unoptimized
-                          />
+                    return (
+                      <div
+                        key={deployment.chain}
+                        className="flex items-center justify-between p-4 gap-4 hover:bg-zinc-50 dark:hover:bg-zinc-900/20 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="relative h-8 w-8 rounded-full ring-2 ring-zinc-200 dark:ring-zinc-800 bg-white overflow-hidden flex items-center justify-center flex-shrink-0">
+                            <Image
+                              src={getBlockchainLogoUrl(deployment.chain)}
+                              alt={`${deployment.chain} logo`}
+                              width={20}
+                              height={20}
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </div>
+                          <div>
+                            <span className="font-semibold text-zinc-900 dark:text-zinc-100 block text-xs sm:text-sm">
+                              {deployment.chain === "ethereum-classic" ? "Ethereum Classic" : chainName}
+                            </span>
+                          </div>
                         </div>
-                        <div>
-                          <span className="font-semibold text-zinc-900 dark:text-zinc-100 block text-xs sm:text-sm">
-                            {deployment.chain === "ethereum-classic" ? "Ethereum Classic" : chainName}
-                          </span>
+
+                        <div className="flex items-center gap-3">
+                          {deployStyles && (
+                            <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold border ${deployStyles.bg} ${deployStyles.text} ${deployStyles.border}`}>
+                              <span className={`h-1 w-1 rounded-full ${deployStyles.dot} animate-pulse`} />
+                              {deployment.status}
+                            </span>
+                          )}
+
+                          {isInteractable && deployment.link ? (
+                            <Link
+                              href={deployment.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 dark:text-secondary dark:hover:text-secondary/80 transition-colors py-1.5 px-3 rounded-lg border border-primary/20 dark:border-secondary/20 hover:bg-primary/5 dark:hover:bg-secondary/5"
+                            >
+                              <span>Launch</span>
+                              <ArrowUpRight className="h-3.5 w-3.5" />
+                            </Link>
+                          ) : (
+                            <span className="text-xs text-zinc-400 dark:text-zinc-500 italic py-1.5 px-3">
+                              Locked
+                            </span>
+                          )}
                         </div>
                       </div>
-
-                      <div className="flex items-center gap-3">
-                        {deployStyles && (
-                          <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold border ${deployStyles.bg} ${deployStyles.text} ${deployStyles.border}`}>
-                            <span className={`h-1 w-1 rounded-full ${deployStyles.dot} animate-pulse`} />
-                            {deployment.status}
-                          </span>
-                        )}
-
-                        {isInteractable && deployment.link ? (
-                          <Link
-                            href={deployment.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 dark:text-secondary dark:hover:text-secondary/80 transition-colors py-1.5 px-3 rounded-lg border border-primary/20 dark:border-secondary/20 hover:bg-primary/5 dark:hover:bg-secondary/5"
-                          >
-                            <span>Launch</span>
-                            <ArrowUpRight className="h-3.5 w-3.5" />
-                          </Link>
-                        ) : (
-                          <span className="text-xs text-zinc-400 dark:text-zinc-500 italic py-1.5 px-3">
-                            Locked
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       )}

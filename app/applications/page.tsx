@@ -167,6 +167,16 @@ const applications = [
       { chain: "ergo", status: "Beta", link: "https://tnt.stability.nexus" }
     ]
   },
+  {
+    title: "StablePay",
+    description: "A decentralized payment gateway enabling merchants to accept stablecoin payments seamlessly.",
+    longDescription: "StablePay is a decentralized payment gateway designed for Web3 commerce. It enables merchants and platforms to accept customer payments in stablecoins securely, providing automated routing and transaction settlement with minimal price volatility friction.",
+    image: "/logos/stablepay.svg",
+    link: "#",
+    categories: ["DeFi"],
+    status: "Coming Soon",
+    deployments: []
+  },
 ]
 
 export default function ApplicationsPage() {
