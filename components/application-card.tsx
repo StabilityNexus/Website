@@ -32,6 +32,12 @@ const getBlockchainLogoUrl = (chain: string) => {
   return `/blockchains/${chain}.${ext}`
 }
 
+const CategoryPill = ({ category, className = "" }: { category: string; className?: string }) => (
+  <span className={`inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 ${className}`}>
+    {category}
+  </span>
+)
+
 const ApplicationCard: React.FC<Props> = ({
   image,
   title,
@@ -170,9 +176,7 @@ const ApplicationCard: React.FC<Props> = ({
           <div className="p-6 pt-0 flex items-center justify-between min-h-[56px] w-full">
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
-                <span key={cat} className="inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors">
-                  {cat}
-                </span>
+                <CategoryPill key={cat} category={cat} className="transition-colors" />
               ))}
               {statusStyles && (
                 <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusStyles.bg} ${statusStyles.text} ${statusStyles.border}`}>
@@ -236,9 +240,7 @@ const ApplicationCard: React.FC<Props> = ({
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap gap-2">
                 {categories.map((cat) => (
-                  <span key={cat} className="inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200">
-                    {cat}
-                  </span>
+                  <CategoryPill key={cat} category={cat} />
                 ))}
                 {statusStyles && (
                   <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusStyles.bg} ${statusStyles.text} ${statusStyles.border}`}>

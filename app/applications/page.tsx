@@ -204,6 +204,7 @@ export default function ApplicationsPage() {
               <button
                 key={category}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 text-sm font-semibold rounded-lg border transition-transform duration-200 active:scale-[0.98] ${
                   isActive
