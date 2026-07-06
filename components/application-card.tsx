@@ -17,7 +17,7 @@ interface Props {
   description: string
   longDescription?: string
   link: string
-  category?: string
+  categories?: string[]
   status?: "Live" | "Soon" | "Coming Soon" | "Beta" | (string & {})
   deployments?: Deployment[]
   isLargeLogo?: boolean
@@ -32,13 +32,19 @@ const getBlockchainLogoUrl = (chain: string) => {
   return `/blockchains/${chain}.${ext}`
 }
 
+const CategoryPill = ({ category, className = "" }: { category: string; className?: string }) => (
+  <span className={`inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 ${className}`}>
+    {category}
+  </span>
+)
+
 const ApplicationCard: React.FC<Props> = ({
   image,
   title,
   description,
   longDescription,
   link,
-  category,
+  categories = [],
   status,
   deployments = [],
   isLargeLogo = false,
@@ -47,6 +53,7 @@ const ApplicationCard: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const isMounted = useRef(false)
 
   // Block background scrolling and manage focus when modal is open
   useEffect(() => {
@@ -58,13 +65,23 @@ const ApplicationCard: React.FC<Props> = ({
       }, 0)
     } else {
       document.body.style.overflow = ""
-      // Restore focus to the trigger on close
-      triggerRef.current?.focus()
+      // Restore focus to the trigger on close, but only after actual mount (to prevent jumping on load)
+      if (isMounted.current) {
+        triggerRef.current?.focus()
+      }
     }
     return () => {
       document.body.style.overflow = ""
     }
   }, [isOpen])
+
+  // Track the actual initial mount
+  useEffect(() => {
+    isMounted.current = true
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -158,11 +175,9 @@ const ApplicationCard: React.FC<Props> = ({
           {/* Bottom Row */}
           <div className="p-6 pt-0 flex items-center justify-between min-h-[56px] w-full">
             <div className="flex flex-wrap gap-2">
-              {category && (
-                <span className="inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors">
-                  {category}
-                </span>
-              )}
+              {categories.map((cat) => (
+                <CategoryPill key={cat} category={cat} className="transition-colors" />
+              ))}
               {statusStyles && (
                 <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusStyles.bg} ${statusStyles.text} ${statusStyles.border}`}>
                   <span className={`h-1.5 w-1.5 rounded-full ${statusStyles.dot} animate-pulse`} />
@@ -224,11 +239,9 @@ const ApplicationCard: React.FC<Props> = ({
             {/* Header Block */}
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap gap-2">
-                {category && (
-                  <span className="inline-flex items-center rounded-full border border-transparent bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200">
-                    {category}
-                  </span>
-                )}
+                {categories.map((cat) => (
+                  <CategoryPill key={cat} category={cat} />
+                ))}
                 {statusStyles && (
                   <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusStyles.bg} ${statusStyles.text} ${statusStyles.border}`}>
                     <span className={`h-1.5 w-1.5 rounded-full ${statusStyles.dot} animate-pulse`} />
