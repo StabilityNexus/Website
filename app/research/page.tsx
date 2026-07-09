@@ -2,8 +2,6 @@
 
 import { useState, type ComponentProps } from "react"
 import Container from "@/components/container"
-// import { CallToActionResearch } from "@/components/cta"
-import CTA from "@/components/cta"
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
@@ -540,14 +538,6 @@ export default function ResearchPage() {
           </div>
         </div>
       </Container>
-      <CTA
-        heading="The Stability Research Network"
-        text="The Stability Research Network (SRN) is the global network for
-            researchers with a common interest on topics related to
-            stability."
-        link="https://discord.gg/RYarrEN2yB"
-        linkText="Connect With The SRN"
-      />
     </div>
   )
 }
