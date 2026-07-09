@@ -3,7 +3,6 @@
 import { useState } from "react"
 import ApplicationCard from "@/components/application-card"
 import Container from "@/components/container"
-import CTA from "@/components/cta"
 
 const applications = [
   {
@@ -249,12 +248,6 @@ export default function ApplicationsPage() {
         </div>
       </Container>
 
-      <CTA
-        heading="The Stable Order"
-        text="The Stable Order is an open and mutually supportive collaboration, whose primary activity is the research and development of novel protocols that stabilize the decentralized economy. If you share our goals and would like to work together or support us, get in touch."
-        link="https://docs.stability.nexus/about-us/the-stable-order/join-the-stable-order"
-        linkText="Join the Stable Order"
-      />
     </div>
   )
 }
