@@ -15,7 +15,6 @@ export default function EventsPage() {
   const pastEditions = [
     {
       id: "stability-2025",
-      eyebrow: "PROCEEDINGS",
       title: "1st Stability Workshop",
       subtitle: "(STABILITY 2025)",
       date: "December 15, 2025",
@@ -24,7 +23,6 @@ export default function EventsPage() {
       papers: 10,
       link: "https://workshop.stability.nexus/",
       description: "STABILITY 2025 brought together researchers to present works on the foundations of blockchains and decentralized finance protocols. After thorough peer review, 10 papers were selected for presentation at the workshop. Extended revised versions of these papers will appear in a special issue of the Journal of Financial Technology.",
-      gradient: "from-primary/30 via-info/20 to-transparent blur-[50px]",
     }
   ]
 
@@ -36,7 +34,6 @@ export default function EventsPage() {
       location: "Discord",
       link: "https://discord.com/events/995968619034984528/1464179973047717888",
       description: "Join our weekly research meeting where we discuss stability, trust, autonomy, and resilience in decentralized systems. Bring your ideas, questions, and research to collaborate with our community.",
-      focusAreas: ["Decentralized Finance", "Protocol Resilience", "Autonomy & Stability", "Tokenomics Design"]
     }
   ]
 
