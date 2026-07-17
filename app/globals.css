@@ -32,5 +32,33 @@
       animation: none !important;
     }
   }
+
+  /* Hide scrollbar */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar  */
+  .scrollbar-none {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  /* Fade out edges for overflow scroll containers */
+  .mask-fade-edges {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 24px,
+      black calc(100% - 24px),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 24px,
+      black calc(100% - 24px),
+      transparent
+    );
+  }
 }
 
