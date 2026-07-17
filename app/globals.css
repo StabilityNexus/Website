@@ -43,16 +43,15 @@
     scrollbar-width: none;  
   }
 
-  /* Fade out edges for overflow scroll containers */
   .mask-fade-edges {
-    mask-image: linear-gradient(
+    -webkit-mask-image: linear-gradient(
       to right,
       transparent,
       black 24px,
       black calc(100% - 24px),
       transparent
     );
-    -webkit-mask-image: linear-gradient(
+    mask-image: linear-gradient(
       to right,
       transparent,
       black 24px,

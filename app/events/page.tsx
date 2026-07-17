@@ -43,22 +43,13 @@ export default function EventsPage() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      const offset = 80
-      const bodyRect = document.body.getBoundingClientRect().top
-      const elementRect = element.getBoundingClientRect().top
-      const elementPosition = elementRect - bodyRect
-      const offsetPosition = elementPosition - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
+      element.scrollIntoView({ behavior: "smooth" })
     }
   }
 
   const scrollCarousel = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const card = scrollContainerRef.current.firstElementChild as HTMLElement
+      const card = scrollContainerRef.current.querySelector(".snap-center") as HTMLElement
       const scrollAmount = card ? card.offsetWidth + 24 : scrollContainerRef.current.clientWidth
       scrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -69,7 +60,7 @@ export default function EventsPage() {
 
   const scrollUpcomingCarousel = (direction: "left" | "right") => {
     if (upcomingScrollContainerRef.current) {
-      const card = upcomingScrollContainerRef.current.firstElementChild as HTMLElement
+      const card = upcomingScrollContainerRef.current.querySelector(".snap-center") as HTMLElement
       const scrollAmount = card ? card.offsetWidth + 24 : upcomingScrollContainerRef.current.clientWidth
       upcomingScrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
