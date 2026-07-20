@@ -21,8 +21,8 @@ const links = [
     label: "Applications",
   },
   {
-    to: "https://workshop.stability.nexus",
-    label: "Workshop",
+    to: "/events",
+    label: "Events",
   },
   {
     to: "https://viewpoints.stability.nexus/",
