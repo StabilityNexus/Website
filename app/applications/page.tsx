@@ -72,7 +72,7 @@ const applications = [
     title: "Fate",
     description: "A perpetual prediction pool protocol for continuous forecasting markets.",
     longDescription: "Fate is a decentralized protocol designed for continuous, perpetual prediction pools. It enables running forecasting markets that do not have rigid expiry dates, offering users continuous exposure and hedging opportunities for continuous events.",
-    image: "/logos/destiny.png",
+    image: "/logos/fate.svg",
     link: "https://fate.stability.nexus",
     categories: ["DeFi", "Prediction"],
     status: "Beta",
