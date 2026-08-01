@@ -176,6 +176,16 @@ const applications = [
     status: "Coming Soon",
     deployments: []
   },
+  {
+    title: "ThruBox",
+    description: "A self-hostable encrypted relay server acting as a dumb mailbox for secure message passing.",
+    longDescription: "ThruBox is a simple, self-hostable relay server that acts as an encrypted mailbox. Any application can use it to pass encrypted data between users — the server never sees plaintext. It features configurable message TTL, IP-based rate limiting, optional API key authentication, and Docker support. A companion TypeScript SDK (ThruBox Client) is available for easy integration.",
+    image: "/logos/thrubox.svg",
+    link: "https://github.com/AOSSIE-Org/ThruBox-Server",
+    categories: ["Infrastructure", "Privacy"],
+    status: "In Development",
+    deployments: []
+  },
 ]
 
 export default function ApplicationsPage() {
