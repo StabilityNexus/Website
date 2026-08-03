@@ -57,6 +57,16 @@ const applications = [
     ]
   },
   {
+    title: "MiniChain",
+    description: "A minimal fully functional blockchain implemented in Python for education.",
+    longDescription: "MiniChain is a minimal fully functional blockchain implemented in Python. By having a clean codebase with self-explanatory code, MiniChain allows developers to learn and deeply understand blockchains. MiniChain's smart contracts can be written in Python as well.",
+    image: "/logos/minichain.svg",
+    link: "https://github.com/StabilityNexus/MiniChain",
+    categories: ["Education", "Blockchain"],
+    status: "Live",
+    deployments: []
+  },
+  {
     title: "Destiny",
     description: "An innovative prediction pool platform allowing users to forecast future outcomes.",
     longDescription: "Destiny is an advanced decentralized prediction pool platform. It allows participants to pool collateral and forecast the outcomes of future events, using automated market mechanisms for fair reward distribution upon settlement.",
