@@ -19,7 +19,7 @@ const config: Config = {
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
-      primary: "#228B22",
+      primary: "#3E921E",
       secondary: "#FFC517",
       info: "#91A511",
       black: colors.black,
@@ -331,6 +331,8 @@ const config: Config = {
       DEFAULT: "1",
     },
     fontFamily: {
+      spectral: ["var(--font-spectral)", "serif"],
+      "general-sans": ["GeneralSans", "sans-serif"],
       sans: [
         "ui-sans-serif",
         "system-ui",
