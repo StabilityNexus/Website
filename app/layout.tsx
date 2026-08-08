@@ -24,13 +24,14 @@ const generalSans = localFont({
     },
     {
       path: "../public/fonts/gssb.otf",
-      weight: "700",
+      weight: "600",
     },
     {
       path: "../public/fonts/gsb.otf",
-      weight: "800",
+      weight: "700",
     },
   ],
+  variable: "--font-general-sans",
 })
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${generalSans.className} ${spectral.variable}`}
+        className={`${generalSans.className} ${generalSans.variable} ${spectral.variable}`}
       >
         <Header />
         {children}

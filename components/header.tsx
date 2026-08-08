@@ -59,28 +59,14 @@ export default function Header() {
               aria-label="Stability Nexus Home"
               className="flex items-center justify-start"
             >
-              {/* Mobile Viewport Logo */}
-              <div className="block md:hidden">
-                <Image
-                  src="/logo-combined.svg"
-                  alt="Stability Nexus Logo"
-                  width={130}
-                  height={50}
-                  className="shrink-0 transition-transform duration-200 hover:scale-105 object-contain"
-                  priority
-                />
-              </div>
-              {/* Desktop Viewport Logo */}
-              <div className="hidden md:block">
-                <Image
-                  src="/logo-combined.svg"
-                  alt="Stability Nexus Logo"
-                  width={195}
-                  height={75}
-                  className="shrink-0 transition-transform duration-200 hover:scale-105 object-contain"
-                  priority
-                />
-              </div>
+              <Image
+                src="/logo-combined.svg"
+                alt="Stability Nexus Logo"
+                width={195}
+                height={75}
+                className="h-[50px] w-auto md:h-[75px] md:w-auto shrink-0 transition-transform duration-200 hover:scale-105 object-contain"
+                priority
+              />
             </Link>
 
             {/* Small Screen Menu Button */}
