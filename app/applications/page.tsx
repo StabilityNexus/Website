@@ -58,11 +58,11 @@ const applications = [
   },
   {
     title: "MiniChain",
-    description: "A minimal fully functional blockchain implemented in Python for education.",
+    description: "A minimal fully functional blockchain implemented in Python for education, research and innovation.",
     longDescription: "MiniChain is a minimal fully functional blockchain implemented in Python. By having a clean codebase with self-explanatory code, MiniChain allows developers to learn and deeply understand blockchains. MiniChain's smart contracts can be written in Python as well.",
     image: "/logos/minichain.svg",
     link: "https://github.com/StabilityNexus/MiniChain",
-    categories: ["Education", "Blockchain"],
+    categories: ["Education", "Research", "Blockchain"],
     status: "Live",
     deployments: []
   },
