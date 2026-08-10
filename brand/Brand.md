@@ -28,7 +28,7 @@ The primary brand configuration, combining the logomark icon on the left with th
 
 ## 2. Color Palette
 
-The color system is derived directly from the logo gradients and is mapped into the Tailwind CSS system:
+The color system is derived directly from the logo gradients and is mapped into the Tailwind CSS system. The intermediary gradient transition colors used in the logo can be referenced in this [Coolors Palette](https://coolors.co/228b22-3e921e-5a981a-91a511-adac0d-c8b209-e4b905-ffbf00-ffc517).
 
 | Color Name | Hex Code | Tailwind Mapping | Role |
 |---|---|---|---|
