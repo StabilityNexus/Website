@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, X } from "lucide-react"
+import { ArrowUpRight, X, Github, Globe } from "lucide-react"
 
 interface Deployment {
   chain: string
@@ -274,6 +274,31 @@ const ApplicationCard: React.FC<Props> = ({
                 {longDescription || description}
               </p>
             </div>
+
+            {/* General Project Link */}
+            {link && (link.includes("github.com") || deployments.length === 0) && (
+              <div className="flex items-center pt-2">
+                <Link
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 dark:text-secondary dark:hover:text-secondary/80 transition-colors py-2 px-4 rounded-lg border border-primary/20 dark:border-secondary/20 hover:bg-primary/5 dark:hover:bg-secondary/5"
+                >
+                  {link.includes("github.com") ? (
+                    <>
+                      <Github className="h-4 w-4" />
+                      <span>View Source on GitHub</span>
+                    </>
+                  ) : (
+                    <>
+                      <Globe className="h-4 w-4" />
+                      <span>Visit Website</span>
+                    </>
+                  )}
+                  <ArrowUpRight className="h-4 w-4 opacity-70 ml-1" />
+                </Link>
+              </div>
+            )}
 
             {/* Deployments Breakdown */}
             {deployments.length > 0 && (
