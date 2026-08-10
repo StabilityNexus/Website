@@ -9,7 +9,7 @@ This document lists the individuals fulfilling the key roles of [Maintainer](htt
 | Name | GitHub Username | Discord Username | Project / Feature Idea | Area / Focus | Proposal / Discussion Link |
 |---|---|---|---|---|---|
 | **Bruno** | [@Zahnentferner](https://github.com/Zahnentferner) | `@b.wp` | Stability Nexus Website | Web Architecture & Branding | [Organization](https://github.com/StabilityNexus) |
-| **Sarthak** | [@sarthak09385](https://github.com/sarthak09385) | `@sarthak_09385` | Stability Nexus Website | Web Architecture & Branding | [Organization](https://github.com/StabilityNexus) |
+| **Sarthak** | [@DengreSarthak](https://github.com/DengreSarthak) | `@sarthak_09385` | Stability Nexus Website | Web Architecture & Branding | [Organization](https://github.com/StabilityNexus) |
 
 ## Mentors
 

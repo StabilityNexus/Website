@@ -53,8 +53,8 @@
 - [x] 🔴 **documentation_basics** — Basic documentation exists for the software (README, Wiki, or docs folder).
   - *Evidence URL:* Described in [README.md](README.md).
 
-- [x] 🔴 **documentation_interface** — Reference documentation describes the external interface (API inputs/outputs, CLI flags, config schema, etc.).
-  - *Evidence URL:* Outlined in [brand/Brand.md](brand/Brand.md) for logo dimensions, typography, and color palette configurations.
+- [~] 🔴 **documentation_interface** — Reference documentation describes the external interface (API inputs/outputs, CLI flags, config schema, etc.).
+  - *Justification:* Not applicable. This is a static frontend website with no public API, CLI flags, or configuration schema that external users interact with.
 
 ### Other Basics
 
@@ -116,12 +116,12 @@
 ### Vulnerability Reporting
 
 - [x] 🔴 **vulnerability_report_process** — A vulnerability reporting process is documented (e.g., `SECURITY.md`).
-  - *Evidence URL:* Outlined in [CONTRIBUTING.md](CONTRIBUTING.md#discord-discussion).
+  - *Evidence URL:* Outlined in [CONTRIBUTING.md](CONTRIBUTING.md#important-discord-communication-is-mandatory).
 
 - [x] 🟡 **vulnerability_report_private** — If private vulnerability reporting is supported, the method for private submission is documented.
-  - *Evidence URL:* Addressed in [CONTRIBUTING.md](CONTRIBUTING.md#discord-discussion) via private Discord channels.
+  - *Evidence URL:* Addressed in [CONTRIBUTING.md](CONTRIBUTING.md#important-discord-communication-is-mandatory) via private Discord channels.
 
-- [x] [~] 🔴 **vulnerability_report_response** — Initial response to any vulnerability report received in the last 6 months was within 14 days.
+- [~] 🔴 **vulnerability_report_response** — Initial response to any vulnerability report received in the last 6 months was within 14 days.
   - *Justification:* No security vulnerability reports have been received.
 
 ---
@@ -227,7 +227,7 @@
 - [~] 🔵 **dynamic_analysis_enable_assertions** — Dynamic analysis / testing runs with assertions enabled (not just production mode). *(SUGGESTED)*
   - *Justification:* Not applicable.
 
-- [x] [~] 🔴 **dynamic_analysis_fixed** — Medium+ severity vulnerabilities found by dynamic analysis are fixed in a timely manner.
+- [~] 🔴 **dynamic_analysis_fixed** — Medium+ severity vulnerabilities found by dynamic analysis are fixed in a timely manner.
   - *Justification:* Not applicable.
 
 - [~] 🔵 **dynamic_analysis_unsafe** — If the project uses memory-unsafe languages (C/C++), memory safety tools (Valgrind, AddressSanitizer) are used. *(SUGGESTED)*
