@@ -1,10 +1,10 @@
 "use client"
 import { Menu, X } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import Container from "./container"
+import Image from "next/image"
 import { ModeToggle } from "./mode-toggle"
 
 const links = [
@@ -53,29 +53,20 @@ export default function Header() {
       <Container className="md:!px-6">
         <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0">
           <div className="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
-            {/* Logo */}
+            {/* Combined Logomark-Logotype Logo */}
             <Link
               href="/"
-              aria-label="logo"
-              className="flex items-center justify-center space-x-2"
+              aria-label="Stability Nexus Home"
+              className="flex items-center justify-start"
             >
               <Image
-                unoptimized
-                fetchPriority="high"
-                loading="lazy"
-                src="./logo.png"
+                src="/logo-combined.svg"
                 alt="Stability Nexus Logo"
-                height={50}
-                width={50}
+                width={195}
+                height={75}
+                className="h-[50px] w-auto md:h-[75px] md:w-auto shrink-0 transition-transform duration-200 hover:scale-105 object-contain"
+                priority
               />
-              <span className="text-2xl font-medium tracking-tight text-black">
-                <span className=" text-secondary dark:text-white">
-                  Stability
-                </span>
-                <span className="block text-primary dark:text-white">
-                  Nexus
-                </span>
-              </span>
             </Link>
 
             {/* Small Screen Menu Button */}
