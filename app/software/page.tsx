@@ -188,7 +188,7 @@ const applications = [
   },
 ]
 
-export default function ApplicationsPage() {
+export default function SoftwarePage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
   // Dynamically extract unique categories
@@ -212,7 +212,7 @@ export default function ApplicationsPage() {
       <Container>
         {/* Page Title */}
         <h2 className="text-left font-sans text-xl sm:text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mb-6">
-          Applications
+          Software
         </h2>
 
         {/* Category Filters Row */}

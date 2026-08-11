@@ -17,8 +17,8 @@ const links = [
     label: "Research",
   },
   {
-    to: "/applications",
-    label: "Applications",
+    to: "/software",
+    label: "Software",
   },
   {
     to: "/events",
