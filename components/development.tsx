@@ -72,7 +72,7 @@ export default function Development() {
             From Research to Production
           </h2>
           <p className="text-base md:text-lg font-normal text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
-            We translate peer-reviewed research into production-grade software. Abiding by three core principles for stability, we ensure absolute resilience across all deployed applications.
+            We translate peer-reviewed research into production-grade software. Abiding by three core principles for stability, we ensure absolute resilience across all deployed software.
           </p>
         </div>
 
