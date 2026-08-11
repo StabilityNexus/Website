@@ -72,7 +72,7 @@ export default function Development() {
             From Research to Production
           </h2>
           <p className="text-base md:text-lg font-normal text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
-            We translate peer-reviewed research into production-grade software. Abiding by three core principles for stability, we ensure absolute resilience across all deployed applications.
+            We translate peer-reviewed research into production-grade software. Abiding by three core principles for stability, we ensure absolute resilience across all deployed software.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function Development() {
               </h3>
             </div>
             <p className="text-base text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
-              Our applications are open to everyone, requiring no intermediary approvals and ensuring censorship-resistance.
+              Our software is open to everyone, requiring no intermediary approvals and ensuring censorship-resistance.
             </p>
           </div>
 
@@ -206,10 +206,10 @@ export default function Development() {
         {/* Narrative CTA (Action) */}
         <div className="mt-16 flex justify-center">
           <Link
-            href="/applications"
+            href="/software"
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-8 rounded-md bg-secondary hover:bg-secondary/95 text-black font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-center shadow-sm"
           >
-            <span>Use our Decentralized Applications and Tools</span>
+            <span>Use our Decentralized Software and Tools</span>
             <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
