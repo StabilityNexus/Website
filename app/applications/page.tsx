@@ -157,7 +157,7 @@ const applications = [
     image: "/logos/dit.svg",
     link: "https://identity-tokens-evm-frontend.vercel.app/",
     status: "Beta",
-    categories: ["Social", "Token"],
+    categories: ["Social", "Tokens"],
     deployments: [
       { chain: "ethereum-classic", status: "Beta", link: "https://identity-tokens-evm-frontend.vercel.app/" }
     ]
