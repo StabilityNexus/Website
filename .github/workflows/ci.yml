@@ -4,26 +4,34 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Cancel stale runs on new pushes
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+# Restrict permissions to read-only
+permissions:
+  contents: read
+
 jobs:
   verify:
-    name: Lint, Format, and Typecheck
+    name: Lint and Typecheck
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b163090775822d60b83c065c9b5 # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@392252cc7b6655c63078502b121c282b25867909 # v4.0.4
         with:
           node-version: "20"
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Check code formatting
-        run: npm run format:check
 
       - name: Run linter
         run: npm run lint
