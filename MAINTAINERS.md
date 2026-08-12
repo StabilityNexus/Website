@@ -15,7 +15,7 @@ This document lists the individuals fulfilling the key roles of [Maintainer](htt
 | Name | GitHub Username | Discord Username | Area / Focus |
 |---|---|---|---|
 | **Bruno** | [@Zahnentferner](https://github.com/Zahnentferner) | `@b.wp` | Core Website Development & Branding |
-| **Sarthak** | [@sarthak09385](https://github.com/sarthak09385) | `@sarthak_09385` | Core Website Development & Branding |
+| **Sarthak** | [@DengreSarthak](https://github.com/DengreSarthak) | `@sarthak_09385` | Core Website Development & Branding |
 
 ## Maintainers
 
