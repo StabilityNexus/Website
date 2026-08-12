@@ -151,6 +151,18 @@ const applications = [
     ]
   },
   {
+    title: "Decentralized Identity Platform",
+    description: "A decentralized EVM identity protocol for self-issuing ERC-721 identity tokens and building on-chain web of trust.",
+    longDescription: "Decentralized Identity Tokens is a decentralized identity platform that lets users self-issue customizable ERC-721 identity tokens with metadata like social links, nationality, name and more. Users retain full identity control and can endorse other tokens on-chain, creating a scalable, transparent web of trust and reliable verification.",
+    image: "/logos/dit.svg",
+    link: "https://identity-tokens-evm-frontend.vercel.app/",
+    status: "Beta",
+    categories: ["Social", "Token"],
+    deployments: [
+      { chain: "ethereum-classic", status: "Beta", link: "https://identity-tokens-evm-frontend.vercel.app/" }
+    ]
+  },
+  {
     title: "HackHub",
     description: "A comprehensive platform for organizing and participating in Web3 hackathons.",
     longDescription: "HackHub is an all-in-one decentralized platform for hosting, organizing, and participating in hackathons. It integrates prize pool escrow management, project submissions, and judge voting on-chain for maximum fairness.",
