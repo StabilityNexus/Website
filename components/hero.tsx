@@ -38,13 +38,16 @@ export default function Hero() {
               >
                 Join Discord
               </Link>
-              <Link
+              {/* Plain anchor, not next/link: the router intercepts the click
+                  and calls preventDefault on non-navigational protocols, so the
+                  mail client never opens. */}
+              <a
                 href="mailto:contact@stability.nexus"
                 aria-label="Contact Stability Nexus by email"
                 className="w-full sm:w-auto h-11 px-6 rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 text-black dark:text-white font-semibold text-base transition duration-200 hover:scale-[1.02] active:scale-[0.98] text-center flex items-center justify-center"
               >
                 Contact Us
-              </Link>
+              </a>
             </div>
           </div>
 
