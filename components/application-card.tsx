@@ -22,6 +22,8 @@ interface Props {
   deployments?: Deployment[]
   isLargeLogo?: boolean
   invertLogo?: boolean
+  // Logo to show in dark mode, for marks that need a different colorway
+  darkImage?: string
 }
 
 const getBlockchainLogoUrl = (chain: string) => {
@@ -49,6 +51,7 @@ const ApplicationCard: React.FC<Props> = ({
   deployments = [],
   isLargeLogo = false,
   invertLogo = false,
+  darkImage,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const triggerRef = useRef<HTMLButtonElement>(null)
@@ -155,9 +158,19 @@ const ApplicationCard: React.FC<Props> = ({
                 alt={`${title} Logo`}
                 fill
                 sizes="(max-width: 768px) 200px, 280px"
-                className={`object-contain ${isLargeLogo ? "p-0" : "p-1.5"} ${invertLogo ? "dark:brightness-0 dark:invert" : ""}`}
+                className={`object-contain ${isLargeLogo ? "p-0" : "p-1.5"} ${invertLogo ? "dark:brightness-0 dark:invert" : ""} ${darkImage ? "dark:hidden" : ""}`}
                 unoptimized
               />
+              {darkImage && (
+                <Image
+                  src={darkImage}
+                  alt={`${title} Logo`}
+                  fill
+                  sizes="(max-width: 768px) 200px, 280px"
+                  className={`hidden object-contain dark:block ${isLargeLogo ? "p-0" : "p-1.5"}`}
+                  unoptimized
+                />
+              )}
             </div>
           </div>
 
@@ -256,9 +269,18 @@ const ApplicationCard: React.FC<Props> = ({
                     src={image}
                     alt={`${title} Logo`}
                     fill
-                    className={`object-contain ${title.toLowerCase() === "hackhub" ? "dark:brightness-0 dark:invert p-0.5" : "p-1.5"}`}
+                    className={`object-contain ${title.toLowerCase() === "hackhub" ? "dark:brightness-0 dark:invert p-0.5" : "p-1.5"} ${darkImage ? "dark:hidden" : ""}`}
                     unoptimized
                   />
+                  {darkImage && (
+                    <Image
+                      src={darkImage}
+                      alt={`${title} Logo`}
+                      fill
+                      className="hidden object-contain p-1.5 dark:block"
+                      unoptimized
+                    />
+                  )}
                 </div>
                 <div>
                   <h2 id="modal-title" className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-white">
