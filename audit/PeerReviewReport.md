@@ -45,7 +45,7 @@ No security vulnerabilities were identified. The following security patterns and
 | Reverse tabnabbing protection | Verified | All external anchor links with `target="_blank"` explicitly include `rel="noopener noreferrer"`. |
 | SEO & metadataBase configuration | Deficient | `app/layout.tsx` defines only a title; `metadataBase`, canonical URLs, Open Graph and Twitter metadata are not defined (Finding 1). |
 | Responsive layout across mobile & desktop | Manually verified | Layout tested across 320px mobile, tablet, and ultra-wide viewports; mobile navigation menu functions smoothly. |
-| Frontend dependency advisory status | Verified | Small runtime dependency set (`next`, `react`, `clsx`, `lucide-react`, `tailwind-merge`, `tailwindcss-animate`, plus `husky`); versions locked by `package-lock.json`. |
+| Frontend dependency manifest & lockfile | Verified | Small runtime dependency set (`next`, `react`, `clsx`, `lucide-react`, `tailwind-merge`, `tailwindcss-animate`, plus `husky`); versions locked by `package-lock.json`. Known-vulnerability (advisory) status was not assessed in this review. |
 
 ---
 
@@ -65,7 +65,7 @@ The following automated and manual checks were validated against the repository:
 - `npm run lint` (`next lint`): Passed with zero warnings or errors.
 - `npm run build` (`next build`): Successfully generated static output into `output/` with clean page routes (`/`, `/blockchains`, `/events`, `/research`, `/software`, `/_not-found`).
 - Visual & Responsive Checks: Inspected navigation menu toggle, YouTube player track switching, and software details modal on both mobile viewports (<640px) and wide desktop displays.
-- Dependency audit: Reviewed the declared dependencies and dev tooling (Prettier, ESLint, Tailwind CSS) in `package.json`; installs are locked by `package-lock.json`.
+- Dependency review: Reviewed the declared dependencies and dev tooling (Prettier, ESLint, Tailwind CSS) in `package.json`; installs are locked by `package-lock.json`.
 
 ---
 
