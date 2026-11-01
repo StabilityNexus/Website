@@ -5,20 +5,29 @@
 
 ## Overall assessment
 
-The review assessed the production codebase of the main organization portal (`https://stability.nexus`). Both automated static analysis and manual code inspection confirmed that the repository contains **no security vulnerabilities or functional defects**. The application compiles via Next.js static HTML export (`output: 'export'`), effectively eliminating server-side attack surfaces (e.g. SSRF, remote code execution, server memory leaks, and dynamic injection). Key architectural patterns—including utilizing jsDelivr CDN mirrors for research papers to keep repository size lean, synchronous client-side theme detection, and client-side modal filtering—were examined and confirmed as sound, intended designs. Static type checking, linting, and production exports completed cleanly with zero warnings or errors.
+The review assessed the production codebase of the main organization portal (`https://stability.nexus`). Automated checks and manual code inspection found **no security vulnerabilities** and **one low-severity defect** (Finding 1: missing SEO and social-sharing metadata). The application uses Next.js static HTML export (`output: 'export'`), which removes Next.js request-time server routes; this review does not cover the build pipeline, hosting, or third-party services. Key architectural patterns—including utilizing jsDelivr CDN mirrors for research papers to keep repository size lean, synchronous client-side theme detection, and client-side modal filtering—were examined and confirmed as sound, intended designs. Static type checking, linting, and production exports completed cleanly with zero warnings or errors.
 
 ## Findings
 
-**No vulnerabilities or security defects were identified.**
+### Finding 1 — No canonical URL, Open Graph or Twitter metadata
 
-The following security patterns and components were examined in detail and verified secure:
+**Severity:** Low — SEO / sharing issue\
+**Location:** `app/layout.tsx:37–39`
+
+**Observation:** The root `metadata` export only sets `title: "The Stability Nexus"`. There is no `metadataBase`, description, canonical URL, Open Graph or Twitter card metadata, and no page overrides them.
+
+**Impact:** Search engines get no canonical URL or description, and links shared on social platforms show no preview card.
+
+**Suggested resolution:** Set `metadataBase: new URL("https://stability.nexus")` with a description, `alternates.canonical`, `openGraph` (title, description, image) and `twitter` card metadata in `app/layout.tsx`, and override title and description per page.
+
+No security vulnerabilities were identified. The following security patterns and components were examined in detail:
 
 - **Secrets and Credentials:** No hardcoded private keys, API credentials, or sensitive secrets were found in source code, environment configs, or GitHub Actions workflows.
 - **Cross-Site Scripting (XSS) & Injection:** Evaluated the inline theme script in `app/layout.tsx`. It executes a self-contained local storage inspection to prevent a flash of unstyled content (FOUC) without processing any external or user-supplied strings, presenting zero injection risk.
 - **Reverse Tabnabbing Protection:** All external outbound links (research papers, YouTube videos, GitBook docs, GitHub repositories) specifying `target="_blank"` strictly declare `rel="noopener noreferrer"`.
 - **Architectural CDN Delivery:** Research whitepaper links point to `cdn.jsdelivr.net/gh/StabilityNexus/Papers/...`, which is an intentional architectural pattern that avoids bloating git repository storage and leverages global edge-caching for large PDF documents.
-- **Static Export Output Isolation:** Deployments compile strictly to static assets in `output/`, eliminating server-side request forgery (SSRF) and Node runtime attack surfaces.
-- **Dependency Hygiene:** Clean production dependency footprint with standard pinned dependencies (`next`, `react`, `clsx`, `lucide-react`, `tailwind-merge`).
+- **Static Export Output Isolation:** Deployments compile to static assets in `output/`, so the site has no Next.js request-time server routes.
+- **Dependency Hygiene:** Small set of declared dependencies: `next` (pinned to `14.1.4`), with caret ranges for `react`, `clsx`, `lucide-react`, `tailwind-merge`, `tailwindcss-animate` and `husky` (a dev tool listed under `dependencies`). A `package-lock.json` is committed, so installs with `npm ci` resolve to locked versions.
 
 ---
 
@@ -26,25 +35,25 @@ The following security patterns and components were examined in detail and verif
 
 | Area / Component | Status | Notes |
 | --- | --- | --- |
-| Static export compilation & output isolation | Verified | Configured with `output: "export"` and `distDir: "output"`; no server runtime attack surface. |
-| Research Library & CDN Whitepapers | Verified | 12 research papers cataloged; CDN mirror delivery avoids repository bloat and leverages global caching. |
-| YouTube seminar playlist player | Verified | Embedded iframe uses `youtube.com/embed/` with clean message event handling and sandboxed playback controls. |
-| Software / Applications catalog | Verified | Interactive details modal, per-chain contract deployment addresses, and category filtering operate purely client-side without state leaks. |
+| Static export compilation & output isolation | Verified | Configured with `output: "export"` and `distDir: "output"`; no Next.js request-time server routes. |
+| Research Library & CDN Whitepapers | Verified | 18 research papers listed in `featuredPapers` (`app/research/page.tsx`); CDN mirror delivery avoids repository bloat and leverages global caching. |
+| YouTube seminar playlist player | Verified | Click-to-load iframe using `youtube-nocookie.com/embed/` with `rel=0`; track switching works. No sandbox attribute or postMessage handling is used. |
+| Software / Applications catalog | Verified | Interactive details modal shows each application's supported chains, status and launch link; category filtering runs client-side. |
 | Dark/Light theme switching & FOUC script | Verified | Self-contained client script; operates safely without user-controlled DOM injection. |
-| OpenSSF Scorecard & CI verification | Verified | GitHub Actions workflows (`.github/workflows/scorecard.yml` and `ci.yml`) enforce automated dependency analysis and branch protection checks. |
+| OpenSSF Scorecard & CI verification | Configured | `ci.yml` runs `npm ci`, `npm run lint` and `npm run typecheck` on pull requests (no build step). `scorecard.yml` runs OpenSSF Scorecard weekly and on pushes to `main`, and publishes the results. Run results were not reviewed. |
 | Typography & Local Font Loading | Verified | Uses Next.js `localFont` with General Sans (`public/fonts/`) and Google Fonts `Spectral`; no unauthenticated runtime font CDNs. |
 | Reverse tabnabbing protection | Verified | All external anchor links with `target="_blank"` explicitly include `rel="noopener noreferrer"`. |
-| SEO & metadataBase configuration | Verified | Canonical URLs, OpenGraph previews, and Twitter metadata structured cleanly under `app/layout.tsx`. |
+| SEO & metadataBase configuration | Deficient | `app/layout.tsx` defines only a title; `metadataBase`, canonical URLs, Open Graph and Twitter metadata are not defined (Finding 1). |
 | Responsive layout across mobile & desktop | Manually verified | Layout tested across 320px mobile, tablet, and ultra-wide viewports; mobile navigation menu functions smoothly. |
-| Frontend dependency advisory status | Verified | Minimal production dependency footprint (`clsx`, `lucide-react`, `tailwind-merge`); clean production package graph. |
+| Frontend dependency advisory status | Verified | Small runtime dependency set (`next`, `react`, `clsx`, `lucide-react`, `tailwind-merge`, `tailwindcss-animate`, plus `husky`); versions locked by `package-lock.json`. |
 
 ---
 
 ## Frontend review notes
 
-The application is built on Next.js 14 App Router, React 18, TypeScript, and Tailwind CSS. The architecture is completely static: dynamic server routes and API routes are omitted, which guarantees that deployment artifacts are static HTML, CSS, client JavaScript bundles, and pre-compressed assets.
+The application is built on Next.js 14 App Router, React 18, TypeScript, and Tailwind CSS. The architecture is completely static: there are no dynamic server routes or API routes, so deployment artifacts are static HTML, CSS, client JavaScript bundles and assets.
 
-Navigation links, application deployment tables, and research papers are defined in typed TypeScript data structures (`components/` and `app/`). The software page features modal dialogs that display chain addresses (Ethereum, Sepolia, etc.) for Stability Nexus applications (Orb, Gluon, Fate, StablePay). The modal isolates click events and traps keyboard focus properly.
+Navigation links, application deployment tables, and research papers are defined in typed TypeScript data structures (`components/` and `app/`). The software page opens a details modal for each Stability Nexus application (Djed, Gluon, hodlCoin, Fate and others) listing its chains, status and launch links. The modal (`role="dialog"`, `aria-modal`) closes on Escape, locks background scrolling, moves focus to its close button when it opens and returns focus to the triggering card when it closes.
 
 ---
 
@@ -56,10 +65,10 @@ The following automated and manual checks were validated against the repository:
 - `npm run lint` (`next lint`): Passed with zero warnings or errors.
 - `npm run build` (`next build`): Successfully generated static output into `output/` with clean page routes (`/`, `/blockchains`, `/events`, `/research`, `/software`, `/_not-found`).
 - Visual & Responsive Checks: Inspected navigation menu toggle, YouTube player track switching, and software details modal on both mobile viewports (<640px) and wide desktop displays.
-- Dependency audit: Verified minimal production dependency tree; standard dev tooling pins Prettier, ESLint, and Tailwind CSS.
+- Dependency audit: Reviewed the declared dependencies and dev tooling (Prettier, ESLint, Tailwind CSS) in `package.json`; installs are locked by `package-lock.json`.
 
 ---
 
 ## Conclusion
 
-The Stability Nexus main organization website is architecturally sound, secure, responsive, and adheres to high engineering standards. No security vulnerabilities or defect findings were identified. The application cleanly implements its intended designs, provides fast static performance, and safely showcases the organization's research, software, and brand ecosystem.
+The Stability Nexus main organization website is architecturally sound and responsive. No security vulnerabilities were identified in the reviewed code; one low-severity defect is reported: the site has no canonical, Open Graph or Twitter metadata (Finding 1). The application cleanly implements its intended designs, provides fast static performance, and showcases the organization's research, software, and brand ecosystem.
