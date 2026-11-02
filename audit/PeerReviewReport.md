@@ -5,7 +5,7 @@
 
 ## Overall assessment
 
-The review assessed the production codebase of the main organization portal (`https://stability.nexus`). Automated checks and manual code inspection found **no security vulnerabilities** and **one low-severity defect** (Finding 1: missing SEO and social-sharing metadata). The application uses Next.js static HTML export (`output: 'export'`), which removes Next.js request-time server routes; this review does not cover the build pipeline, hosting, or third-party services. Key architectural patterns—including utilizing jsDelivr CDN mirrors for research papers to keep repository size lean, synchronous client-side theme detection, and client-side modal filtering—were examined and confirmed as sound, intended designs. Static type checking, linting, and production exports completed cleanly with zero warnings or errors.
+The review assessed the production codebase of the main organization portal (`https://stability.nexus`). Automated checks and manual inspection of the application source found **no security vulnerabilities** in the areas and patterns listed below, and **one low-severity defect** (Finding 1: missing SEO and social-sharing metadata). The application uses Next.js static HTML export (`output: 'export'`), which removes Next.js request-time server routes; this review does not cover the build pipeline, hosting, or third-party services, and is not a complete security assessment. Key patterns (jsDelivr links for 12 of the 18 research papers, synchronous client-side theme detection, and client-side modal filtering) were examined and work as intended. Static type checking, linting, and production exports completed cleanly with zero warnings or errors.
 
 ## Findings
 
@@ -20,12 +20,12 @@ The review assessed the production codebase of the main organization portal (`ht
 
 **Suggested resolution:** Set `metadataBase: new URL("https://stability.nexus")` with a description, `alternates.canonical`, `openGraph` (title, description, image) and `twitter` card metadata in `app/layout.tsx`, and override title and description per page.
 
-No security vulnerabilities were identified. The following security patterns and components were examined in detail:
+No security vulnerabilities were identified in the following patterns and components, which were examined in detail:
 
 - **Secrets and Credentials:** No hardcoded private keys, API credentials, or sensitive secrets were found in source code, environment configs, or GitHub Actions workflows.
-- **Cross-Site Scripting (XSS) & Injection:** Evaluated the inline theme script in `app/layout.tsx`. It executes a self-contained local storage inspection to prevent a flash of unstyled content (FOUC) without processing any external or user-supplied strings, presenting zero injection risk.
-- **Reverse Tabnabbing Protection:** All external outbound links (research papers, YouTube videos, GitBook docs, GitHub repositories) specifying `target="_blank"` strictly declare `rel="noopener noreferrer"`.
-- **Architectural CDN Delivery:** Research whitepaper links point to `cdn.jsdelivr.net/gh/StabilityNexus/Papers/...`, which is an intentional architectural pattern that avoids bloating git repository storage and leverages global edge-caching for large PDF documents.
+- **Cross-Site Scripting (XSS) & Injection:** Evaluated the inline theme script in `app/layout.tsx`. It executes a self-contained local storage inspection to prevent a flash of unstyled content (FOUC) and does not process any external or user-supplied strings; no injection issue was identified in that script.
+- **Reverse Tabnabbing Protection:** All external outbound links (research papers, YouTube videos, GitHub repositories) specifying `target="_blank"` strictly declare `rel="noopener noreferrer"`.
+- **CDN Delivery:** 12 of the 18 research paper links point to `cdn.jsdelivr.net/gh/StabilityNexus/Papers/...`; the other 6 link to publisher and preprint sites (Springer, IACR ePrint, SSRN and others). The reasons for using a CDN mirror (repository size, caching) were not verified.
 - **Static Export Output Isolation:** Deployments compile to static assets in `output/`, so the site has no Next.js request-time server routes.
 - **Dependency Hygiene:** Small set of declared dependencies: `next` (pinned to `14.1.4`), with caret ranges for `react`, `clsx`, `lucide-react`, `tailwind-merge`, `tailwindcss-animate` and `husky` (a dev tool listed under `dependencies`). A `package-lock.json` is committed, so installs with `npm ci` resolve to locked versions.
 
@@ -36,7 +36,7 @@ No security vulnerabilities were identified. The following security patterns and
 | Area / Component | Status | Notes |
 | --- | --- | --- |
 | Static export compilation & output isolation | Verified | Configured with `output: "export"` and `distDir: "output"`; no Next.js request-time server routes. |
-| Research Library & CDN Whitepapers | Verified | 18 research papers listed in `featuredPapers` (`app/research/page.tsx`); CDN mirror delivery avoids repository bloat and leverages global caching. |
+| Research Library & CDN Whitepapers | Partially verified | 18 research papers listed in `featuredPapers` (`app/research/page.tsx`); 12 link to the jsDelivr mirror and 6 to publisher or preprint sites. The CDN rationale was not verified. |
 | YouTube seminar playlist player | Verified | Click-to-load iframe using `youtube-nocookie.com/embed/` with `rel=0`; track switching works. No sandbox attribute or postMessage handling is used. |
 | Software / Applications catalog | Verified | Interactive details modal shows each application's supported chains, status and launch link; category filtering runs client-side. |
 | Dark/Light theme switching & FOUC script | Verified | Self-contained client script; operates safely without user-controlled DOM injection. |
@@ -71,4 +71,4 @@ The following automated and manual checks were validated against the repository:
 
 ## Conclusion
 
-The Stability Nexus main organization website is architecturally sound and responsive. No security vulnerabilities were identified in the reviewed code; one low-severity defect is reported: the site has no canonical, Open Graph or Twitter metadata (Finding 1). The application cleanly implements its intended designs, provides fast static performance, and showcases the organization's research, software, and brand ecosystem.
+The Stability Nexus main organization website is architecturally sound and responsive. No security vulnerabilities were identified in the reviewed application source and patterns listed above; one low-severity defect is reported: the site has no canonical, Open Graph or Twitter metadata (Finding 1). The application cleanly implements its intended designs, provides fast static performance, and showcases the organization's research, software, and brand ecosystem.
