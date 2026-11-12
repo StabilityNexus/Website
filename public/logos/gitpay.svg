@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254" role="img" aria-labelledby="t">
+  <title id="t">GitPay</title>
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="378" y1="780" x2="990" y2="240">
+      <stop offset="0" stop-color="#0C61EB"/>
+      <stop offset="1" stop-color="#0DABF8"/>
+    </linearGradient>
+    <mask id="gap" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254">
+      <rect width="1254" height="1254" fill="#fff"/>
+      <circle cx="773" cy="455" r="238" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="none" stroke="#161925" stroke-width="56">
+    <circle cx="378" cy="300" r="84"/>
+    <circle cx="378" cy="955" r="84"/>
+  </g>
+  <rect x="332" y="378" width="92" height="499" fill="#161925"/>
+  <path d="M378 758C378 684 478 634 610 606" fill="none" stroke="url(#g)" stroke-width="92" stroke-linecap="round" mask="url(#gap)"/>
+  <circle cx="773" cy="455" r="202" fill="none" stroke="url(#g)" stroke-width="26"/>
+  <circle cx="773" cy="455" r="171" fill="url(#g)"/>
+  <g fill="#fff">
+    <rect x="765" y="358" width="19" height="242"/>
+  </g>
+  <path d="M823 410C805 398 785 394 766 394C742 394 729 410 729 430C729 452 747 463 775 474C805 486 820 500 820 522C820 544 802 554 776 554C756 554 734 548 716 538" fill="none" stroke="#fff" stroke-width="38"/>
+</svg>

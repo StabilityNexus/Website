@@ -189,6 +189,19 @@ const applications = [
     ]
   },
   {
+    title: "GitPay",
+    description: "A GitHub Action that pays open-source contributors when a maintainer comments /send on a pull request.",
+    longDescription: "GitPay is a CI/CD-native payout engine shipped as a GitHub Action. A maintainer comments /send on a pull request, the repository's declared policy approves or refuses it, and the workflow pays the contributor directly from the maintainer's own Safe or wallet, then posts a receipt back to the thread. It runs entirely in the adopter's CI, with no server and no custody, and every payout is idempotent so a re-run never pays twice.",
+    image: "/logos/gitpay.svg",
+    darkImage: "/logos/gitpay-dark.svg",
+    link: "https://gitpay.stability.nexus",
+    categories: ["Payments", "Developer Tools"],
+    status: "Beta",
+    deployments: [
+      { chain: "sepolia", status: "Beta", link: "https://gitpay.stability.nexus" }
+    ]
+  },
+  {
     title: "StablePay",
     description: "A decentralized payment gateway enabling merchants to accept stablecoin payments seamlessly.",
     longDescription: "StablePay is a decentralized payment gateway designed for Web3 commerce. It enables merchants and platforms to accept customer payments in stablecoins securely, providing automated routing and transaction settlement with minimal price volatility friction.",
@@ -264,6 +277,7 @@ export default function SoftwarePage() {
                 deployments={application.deployments}
                 isLargeLogo={application.isLargeLogo}
                 invertLogo={application.invertLogo}
+                darkImage={application.darkImage}
               />
             </div>
           ))}
