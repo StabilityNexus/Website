@@ -35,7 +35,12 @@ const generalSans = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://stability.nexus"),
   title: "The Stability Nexus",
+  description: "Advancing decentralization and autonomy through formal methods and rigorous software engineering",
+  alternates: {
+    canonical: "/",
+  },
 }
 
 export default function RootLayout({
