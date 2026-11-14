@@ -57,6 +57,16 @@ const applications = [
     ]
   },
   {
+    title: "MiniChain",
+    description: "A minimal fully functional blockchain implemented in Python for education, research and innovation.",
+    longDescription: "MiniChain is a minimal fully functional blockchain implemented in Python. By having a clean codebase with self-explanatory code, MiniChain allows developers to learn and deeply understand blockchains. MiniChain's smart contracts can be written in Python as well.",
+    image: "/logos/minichain.svg",
+    link: "https://github.com/StabilityNexus/MiniChain",
+    categories: ["Education", "Research", "Blockchain"],
+    status: "Live",
+    deployments: []
+  },
+  {
     title: "Destiny",
     description: "An innovative prediction pool platform allowing users to forecast future outcomes.",
     longDescription: "Destiny is an advanced decentralized prediction pool platform. It allows participants to pool collateral and forecast the outcomes of future events, using automated market mechanisms for fair reward distribution upon settlement.",
@@ -141,6 +151,18 @@ const applications = [
     ]
   },
   {
+    title: "Decentralized Identity Platform",
+    description: "A decentralized EVM identity protocol for self-issuing ERC-721 identity tokens and building on-chain web of trust.",
+    longDescription: "Decentralized Identity Tokens is a decentralized identity platform that lets users self-issue customizable ERC-721 identity tokens with metadata like social links, nationality, name and more. Users retain full identity control and can endorse other tokens on-chain, creating a scalable, transparent web of trust and reliable verification.",
+    image: "/logos/dit.svg",
+    link: "https://identity-tokens-evm-frontend.vercel.app/",
+    status: "Beta",
+    categories: ["Social", "Token"],
+    deployments: [
+      { chain: "ethereum-classic", status: "Beta", link: "https://identity-tokens-evm-frontend.vercel.app/" }
+    ]
+  },
+  {
     title: "HackHub",
     description: "A comprehensive platform for organizing and participating in Web3 hackathons.",
     longDescription: "HackHub is an all-in-one decentralized platform for hosting, organizing, and participating in hackathons. It integrates prize pool escrow management, project submissions, and judge voting on-chain for maximum fairness.",
@@ -167,6 +189,19 @@ const applications = [
     ]
   },
   {
+    title: "GitPay",
+    description: "A GitHub Action that pays open-source contributors when a maintainer comments /send on a pull request.",
+    longDescription: "GitPay is a CI/CD-native payout engine shipped as a GitHub Action. A maintainer comments /send on a pull request, the repository's declared policy approves or refuses it, and the workflow pays the contributor directly from the maintainer's own Safe or wallet, then posts a receipt back to the thread. It runs entirely in the adopter's CI, with no server and no custody, and every payout is idempotent so a re-run never pays twice.",
+    image: "/logos/gitpay.svg",
+    darkImage: "/logos/gitpay-dark.svg",
+    link: "https://gitpay.stability.nexus",
+    categories: ["Payments", "Developer Tools"],
+    status: "Beta",
+    deployments: [
+      { chain: "sepolia", status: "Beta", link: "https://gitpay.stability.nexus" }
+    ]
+  },
+  {
     title: "StablePay",
     description: "A decentralized payment gateway enabling merchants to accept stablecoin payments seamlessly.",
     longDescription: "StablePay is a decentralized payment gateway designed for Web3 commerce. It enables merchants and platforms to accept customer payments in stablecoins securely, providing automated routing and transaction settlement with minimal price volatility friction.",
@@ -188,7 +223,7 @@ const applications = [
   },
 ]
 
-export default function ApplicationsPage() {
+export default function SoftwarePage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
   // Dynamically extract unique categories
@@ -212,7 +247,7 @@ export default function ApplicationsPage() {
       <Container>
         {/* Page Title */}
         <h2 className="text-left font-sans text-xl sm:text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mb-6">
-          Applications
+          Software
         </h2>
 
         {/* Category Filters Row */}
@@ -252,6 +287,7 @@ export default function ApplicationsPage() {
                 deployments={application.deployments}
                 isLargeLogo={application.isLargeLogo}
                 invertLogo={application.invertLogo}
+                darkImage={application.darkImage}
               />
             </div>
           ))}

@@ -1,9 +1,16 @@
 import type { Metadata } from "next"
+import { Spectral } from "next/font/google"
 import localFont from "next/font/local"
 
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import "./globals.css"
+
+const spectral = Spectral({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-spectral",
+})
 
 const generalSans = localFont({
   src: [
@@ -17,17 +24,23 @@ const generalSans = localFont({
     },
     {
       path: "../public/fonts/gssb.otf",
-      weight: "700",
+      weight: "600",
     },
     {
       path: "../public/fonts/gsb.otf",
-      weight: "800",
+      weight: "700",
     },
   ],
+  variable: "--font-general-sans",
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://stability.nexus"),
   title: "The Stability Nexus",
+  description: "Advancing decentralization and autonomy through formal methods and rigorous software engineering",
+  alternates: {
+    canonical: "/",
+  },
 }
 
 export default function RootLayout({
@@ -56,7 +69,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={generalSans.className}>
+      <body
+        className={`${generalSans.className} ${generalSans.variable} ${spectral.variable}`}
+      >
         <Header />
         {children}
         <Footer />

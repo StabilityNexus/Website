@@ -12,6 +12,8 @@
 <div align="center">
 
 [![Static Badge](https://img.shields.io/badge/Stability-Nexus-228B22?style=for-the-badge&labelColor=FFC517)](https://stability.nexus/)
+&nbsp;&nbsp;
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/StabilityNexus/Website/badge)](https://scorecard.dev/viewer/?uri=github.com/StabilityNexus/Website)
 
 </div>
 
