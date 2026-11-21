@@ -172,6 +172,15 @@ If this section has some updates written, don't clear them. Just add your change
   <br/>
   <br/>
 
+## **Protocols**
+
+### Decentralized Identity Tokens (DIT)
+
+DIT is a decentralized EVM identity protocol that lets users self-issue ERC-721 identity tokens with metadata such as social links, nationality and name. Users keep control of their identity and can endorse other tokens on-chain to build a transparent web of trust. The protocol is listed on the [software page](app/software/page.tsx) and a beta deployment is available at [identity-tokens-evm-frontend.vercel.app](https://identity-tokens-evm-frontend.vercel.app/).
+
+<!-- Use Back Button after each section -->
+<div align="right"><kbd><a href="#readme-top">↑ Back to top ↑</a></kbd></div>
+
 ## **Learn More**
 
 To learn more about Next.js, take a look at the following resources:
